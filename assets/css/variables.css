@@ -1,0 +1,43 @@
+:root {
+    /*Cores*/
+    --cor-primaria: #005ca9;
+    --cor-secundaria: #003b6f;
+
+    --cor-fundo: #f5f6f8;
+    --cor-superficie: #ffffff;
+
+    --cor-texto: #222222;
+    --cor-texto-secundario: #666666;
+
+    --cor-borda: #dddddd; 
+
+    /*Espaçamentos*/
+    --espacamento-xs: 4px;
+    --espacamento-sm: 8px;
+    --espacamento-md: 16px;
+    --espacamento-lg: 24px;
+    --espacamento-xl: 32px;
+
+    /* Dimensões */
+    --altura-header: 60px;
+    --largura-sidebar: 300px;
+    --altura-footer: 40px;
+
+
+    /* Bordas */
+    --raio-borda: 6px;
+
+    /* Tamanhos de texto */
+    --tamanho-texto-xs: 12px;
+    --tamanho-texto-sm: 14px;
+    --tamanho-texto-md: 16px;
+    --tamanho-texto-lg: 20px;
+    --tamanho-texto-xl: 24px;
+
+    /* Peso da fonte */
+    --peso-fonte-normal: 400;
+    --peso-fonte-negrito: 700;
+
+    /* Campo de pesquisa */
+    --largura-pesquisa: 300px;
+}

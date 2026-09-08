@@ -1,0 +1,91 @@
+{
+    "apresentacao": {
+        "titulo": "Apresentação",
+        "icone": "auto_stories",
+        "caminho": "contents/home.html"
+    },
+
+    "processos": [
+        {
+            "id": "processo-01",
+            "titulo": "Projeto de Curso",
+            "icone": "folder",
+            "documentacoes": [
+                {
+                    "id": "subprocesso-01",
+                    "titulo": "Consultar se o curso já existe no sistema",
+                    "icone": "description",
+                    "caminho": "contents/processos/projeto_de_curso/consultar_se_curso_ja_existe.html"
+                },
+                {
+                    "id": "subprocesso-02",
+                    "titulo": "Cadastrar curso",
+                    "icone": "description",
+                    "caminho": "contents/processos/projeto_de_curso/cadastrar_curso.html"
+                },
+                {
+                    "id": "subprocesso-03",
+                    "titulo": "Cadastrar matriz curricular",
+                    "icone": "description",
+                    "caminho": "contents/processos/projeto_de_curso/cadastrar_matriz_curricular.html"
+                },
+                {
+                    "id": "subprocesso-04",
+                    "titulo": "Criar módulos e vincular disciplinas na matriz",
+                    "icone": "description",
+                    "caminho": "contents/processos/projeto_de_curso/criar_modulos_da_matriz.html"
+                },
+                {
+                    "id": "subprocesso-05",
+                    "titulo": "Submeter matriz curricular para aprovação",
+                    "icone": "description",
+                    "caminho": "contents/processos/projeto_de_curso/submeter_matriz_curricular_para_aprovacao.html"
+                },
+                {
+                    "id": "subprocesso-06",
+                    "titulo": "Aplicar matriz curricular",
+                    "icone": "description",
+                    "caminho": "contents/processos/projeto_de_curso/aplicar_matriz_curricular.html"
+                }
+            ]
+        },
+
+        {
+            "id": "processo-02",
+            "titulo": "Oferta de Turmas",
+            "icone": "folder",
+            "documentacoes": [
+                {
+                    "id": "subprocesso-01",
+                    "titulo": "Cadastrar período letivo",
+                    "icone": "description",
+                    "caminho": "contents/processos/oferta_de_turmas/cadastrar_periodo_letivo.html"
+                },
+                {
+                    "id": "subprocesso-02",
+                    "titulo": "Parametrizar curso no período letivo",
+                    "icone": "description",
+                    "caminho": "contents/processos/oferta_de_turmas/parametrizar_curso_no_periodo_letivo.html"
+                },
+                {
+                    "id": "subprocesso-03",
+                    "titulo": "Cadastrar turma",
+                    "icone": "description",
+                    "caminho": "contents/processos/oferta_de_turmas/cadastrar_turma.html"
+                },
+                {
+                    "id": "subprocesso-04",
+                    "titulo": "Cadastrar turma/disciplina",
+                    "icone": "description",
+                    "caminho": "contents/processos/oferta_de_turmas/cadastrar_turma_disciplina.html"
+                },
+                {
+                    "id": "subprocesso-05",
+                    "titulo": "[...]",
+                    "icone": "description",
+                    "caminho": "contents/processos/oferta_de_turmas/outro_processo.html"
+                }
+            ]
+        }
+    ]
+}

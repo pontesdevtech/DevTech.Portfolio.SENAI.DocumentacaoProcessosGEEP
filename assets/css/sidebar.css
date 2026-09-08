@@ -1,0 +1,121 @@
+#sidebar {
+    background-color: var(--cor-superficie);
+    border-right: 1px solid var(--cor-borda);
+}
+
+.sidebar-menu {
+    padding: var(--espacamento-xs);
+}
+
+.menu-item-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-sm);
+    padding: var(--espacamento-sm) var(--espacamento-md);
+    border: none;
+    background: none;
+    color: var(--cor-texto);
+    text-align: left;
+    font-size: var(--tamanho-texto-md);
+    font-weight: var(--peso-fonte-negrito);
+    border-radius: var(--raio-borda);
+    cursor: pointer;
+}
+
+.menu-item-button:hover {
+    background-color: var(--cor-fundo);
+}
+
+.menu-item-button.active {
+    background-color: var(--cor-fundo);
+    color: var(--cor-primaria);
+}
+
+.processos {
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-sm);
+
+    padding: var(--espacamento-sm) var(--espacamento-md);
+
+    color: var(--cor-texto);
+    border-radius: var(--raio-borda);
+
+    cursor: pointer;
+}
+
+.processos:hover {
+    background-color: var(--cor-fundo);
+}
+
+.menu-group-button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: var(--espacamento-sm);
+
+    padding: var(--espacamento-sm) var(--espacamento-md);
+
+    border: none;
+    background: none;
+
+    color: var(--cor-texto);
+
+    text-align: left;
+
+    font-size: var(--tamanho-texto-md);
+    font-weight: var(--peso-fonte-negrito);
+
+    border-radius: var(--raio-borda);
+
+    cursor: pointer;
+}
+
+.menu-group-button:hover {
+    background-color: var(--cor-fundo);
+}
+
+.submenu {
+    display: none;
+    padding-left: var(--espacamento-md);
+}
+
+.menu-group.active .submenu {
+    display: block;
+}
+
+.documentacoes {
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-sm);
+
+    padding: var(--espacamento-sm) var(--espacamento-md);
+
+    color: var(--cor-texto-secundario);
+    border-radius: var(--raio-borda);
+
+    cursor: pointer;
+}
+
+.documentacoes:hover {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.documentacoes.active {
+    background-color: var(--cor-fundo);
+    color: var(--cor-primaria);
+    font-weight: var(--peso-fonte-medio);
+}
+
+.documentacoes.active .icone-documentacao {
+    color: var(--cor-primaria);
+}
+
+.menu-group:has(.documentacoes.active) .menu-group-button {
+    background-color: var(--cor-fundo);
+    color: var(--cor-primaria);
+}

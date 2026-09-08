@@ -1,0 +1,31 @@
+#app {
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+
+    grid-template-columns: var(--largura-sidebar) 1fr;
+    grid-template-rows: var(--altura-header) 1fr var(--altura-footer);
+}
+
+#header {
+    grid-area: header;
+}
+
+#sidebar {
+    grid-area: sidebar;
+    overflow-y: auto;
+}
+
+#content {
+    grid-area: content;
+    overflow-y: auto;
+}
+
+#footer {
+    grid-area: footer;
+}
