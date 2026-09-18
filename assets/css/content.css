@@ -1,0 +1,665 @@
+/* =========================================================
+   PÁGINA DE CONTEÚDO
+   ========================================================= */
+
+.doc-page {
+    width: 100%;
+    padding: var(--espacamento-xl);
+    color: var(--cor-texto);
+}
+
+
+/* =========================================================
+   CABEÇALHO DA DOCUMENTAÇÃO
+   ========================================================= */
+
+.doc-header {
+    margin-bottom: var(--espacamento-xl);
+    padding-bottom: var(--espacamento-lg);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.doc-header h1 {
+    margin-bottom: var(--espacamento-md);
+    color: var(--cor-secundaria);
+    font-size: var(--tamanho-texto-xl);
+    font-weight: var(--peso-fonte-negrito);
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   METADADOS
+   ========================================================= */
+
+.doc-metadata {
+    float: left;
+
+    display: table;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin:
+        0
+        var(--espacamento-lg)
+        var(--espacamento-sm)
+        0;
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+
+    background-color: var(--cor-superficie);
+
+    overflow: hidden;
+
+    font-size: var(--tamanho-texto-xs);
+}
+
+
+/* =========================================================
+   LINHA DO METADADO
+   ========================================================= */
+
+.doc-metadata-item {
+    display: table-row;
+}
+
+
+/* =========================================================
+   CHAVE
+   ========================================================= */
+
+.doc-metadata-key {
+    display: table-cell;
+
+    padding:
+        var(--espacamento-sm)
+        var(--espacamento-md);
+
+    background-color: var(--cor-secundaria);
+    color: var(--cor-superficie);
+
+    font-weight: var(--peso-fonte-negrito);
+    line-height: 1;
+
+    white-space: nowrap;
+
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+
+/* =========================================================
+   VALOR
+   ========================================================= */
+
+.doc-metadata-value {
+    display: table-cell;
+
+    padding:
+        var(--espacamento-sm)
+        var(--espacamento-md);
+
+    color: var(--cor-texto);
+
+    font-weight: var(--peso-fonte-normal);
+    line-height: 1;
+
+    white-space: nowrap;
+
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+
+/* =========================================================
+   ÚLTIMA LINHA DO METADADO
+   ========================================================= */
+
+.doc-metadata-item:last-child .doc-metadata-key,
+.doc-metadata-item:last-child .doc-metadata-value {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   LIMPEZA DO FLOAT
+   ========================================================= */
+
+.doc-header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* =========================================================
+   TEXTO DO CABEÇALHO
+   ========================================================= */
+
+.doc-header > p {
+    font-size: var(--tamanho-texto-md);
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+.doc-section {
+    margin-bottom: var(--espacamento-xl);
+}
+
+.doc-section h2 {
+    margin-bottom: var(--espacamento-md);
+
+    color: var(--cor-secundaria);
+
+    font-size: var(--tamanho-texto-lg);
+    font-weight: var(--peso-fonte-negrito);
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   SUBSEÇÕES
+   ========================================================= */
+
+.doc-subsection {
+    margin-top: var(--espacamento-lg);
+    margin-bottom: var(--espacamento-lg);
+}
+
+.doc-subsection h3 {
+    margin-bottom: var(--espacamento-sm);
+
+    color: var(--cor-texto);
+
+    font-size: var(--tamanho-texto-md);
+    font-weight: var(--peso-fonte-negrito);
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   TEXTOS
+   ========================================================= */
+
+.doc-page p {
+    margin-bottom: var(--espacamento-md);
+
+    font-size: var(--tamanho-texto-md);
+    text-align: justify;
+    line-height: 1.7;
+}
+
+.doc-page strong {
+    font-weight: var(--peso-fonte-negrito);
+}
+
+
+/* =========================================================
+   LISTAS
+   ========================================================= */
+
+.doc-page ul,
+.doc-page ol {
+    margin-bottom: var(--espacamento-md);
+    padding-left: var(--espacamento-lg);
+}
+
+.doc-page li {
+    margin-bottom: var(--espacamento-sm);
+
+    font-size: var(--tamanho-texto-md);
+    line-height: 1.6;
+}
+
+.doc-list {
+    padding-left: var(--espacamento-lg);
+}
+
+
+/* =========================================================
+   IMAGENS E FIGURAS
+   ========================================================= */
+
+.doc-figure {
+    margin:
+        var(--espacamento-lg)
+        0;
+
+    text-align: center;
+}
+
+.doc-figure img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+
+    margin: 0 auto;
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+}
+
+
+/* =========================================================
+   PLACEHOLDER TEMPORÁRIO DAS IMAGENS
+   ========================================================= */
+
+.doc-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 250px;
+
+    border: 1px dashed var(--cor-borda);
+    border-radius: var(--raio-borda);
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-secundario);
+
+    font-size: var(--tamanho-texto-sm);
+}
+
+.doc-caption {
+    margin-top: var(--espacamento-sm);
+
+    color: var(--cor-texto-secundario);
+
+    font-size: var(--tamanho-texto-sm);
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   OBSERVAÇÃO / IMPORTANTE
+   ========================================================= */
+
+.doc-note {
+    width: 100%;
+    max-width: 900px;
+
+    margin:
+        var(--espacamento-lg)
+        auto;
+
+    padding: var(--espacamento-md);
+
+    border-left: 4px solid var(--cor-primaria);
+
+    border-radius:
+        0
+        var(--raio-borda)
+        var(--raio-borda)
+        0;
+
+    background-color: var(--cor-secundaria);
+    color: var(--cor-superficie);
+
+    font-size: var(--tamanho-texto-sm);
+    line-height: 1.6;
+}
+
+.doc-note > strong {
+    display: block;
+
+    margin-bottom: var(--espacamento-xs);
+
+    color: var(--cor-texto-destaque);
+    font-weight: var(--peso-fonte-negrito);
+}
+
+.doc-note p {
+    margin-bottom: 0;
+
+    font-size: var(--tamanho-texto-sm);
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CARDS — ITEM 5
+   ========================================================= */
+
+.doc-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
+
+    gap: var(--espacamento-md);
+
+    width: 100%;
+
+    margin:
+        var(--espacamento-lg)
+        0;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.doc-card {
+    min-width: 0;
+
+    padding: var(--espacamento-md);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+
+    background-color: var(--cor-superficie);
+}
+
+.doc-card h3 {
+    margin-bottom: var(--espacamento-sm);
+
+    color: var(--cor-secundaria);
+
+    font-size: var(--tamanho-texto-md);
+    font-weight: var(--peso-fonte-negrito);
+    line-height: 1.4;
+}
+
+.doc-card p {
+    margin-bottom: 0;
+
+    font-size: var(--tamanho-texto-sm);
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FLUXO GERAL
+   ========================================================= */
+
+.doc-flow-table {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 900px;
+
+    gap: var(--espacamento-sm);
+
+    margin:
+        var(--espacamento-lg)
+        auto;
+}
+
+
+/* =========================================================
+   LINHAS DO FLUXO
+   ========================================================= */
+
+.doc-flow-row {
+    display: grid;
+
+    grid-template-columns:
+        320px
+        minmax(0, 1fr);
+
+    width: 100%;
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+
+    background-color: var(--cor-superficie);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CHAVE DO FLUXO
+   ========================================================= */
+
+.doc-flow-key {
+    display: flex;
+    align-items: center;
+
+    gap: var(--espacamento-sm);
+
+    padding: var(--espacamento-md);
+
+    background-color: var(--cor-secundaria);
+    color: var(--cor-superficie);
+
+    font-size: var(--tamanho-texto-sm);
+    line-height: 1.4;
+
+    white-space: nowrap;
+}
+
+.doc-flow-key span {
+    flex-shrink: 0;
+
+    color: var(--cor-texto-destaque);
+    font-weight: var(--peso-fonte-negrito);
+}
+
+.doc-flow-key strong {
+    font-weight: var(--peso-fonte-negrito);
+}
+
+
+/* =========================================================
+   VALOR DO FLUXO
+   ========================================================= */
+
+.doc-flow-value {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    padding: var(--espacamento-md);
+
+    color: var(--cor-texto);
+
+    font-size: var(--tamanho-texto-sm);
+    line-height: 1.6;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   HISTÓRICO DE VERSÕES
+   ========================================================= */
+
+.doc-version-history {
+    margin-top: var(--espacamento-xl);
+
+    padding-top: var(--espacamento-lg);
+
+    border-top: 1px solid var(--cor-borda);
+}
+
+.doc-version-history h2 {
+    margin-bottom: var(--espacamento-md);
+
+    color: var(--cor-secundaria);
+
+    font-size: var(--tamanho-texto-lg);
+    font-weight: var(--peso-fonte-negrito);
+}
+
+
+/* =========================================================
+   TABELA DE VERSÕES
+   ========================================================= */
+
+.doc-version-table {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    overflow-x: auto;
+}
+
+.doc-version-table table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: var(--tamanho-texto-sm);
+}
+
+.doc-version-table th,
+.doc-version-table td {
+    padding:
+        var(--espacamento-sm)
+        var(--espacamento-md);
+
+    border: 1px solid var(--cor-borda);
+
+    text-align: left;
+    vertical-align: top;
+}
+
+
+/* =========================================================
+   COLUNA VERSÃO
+   ========================================================= */
+
+.doc-version-table th:nth-child(1),
+.doc-version-table td:nth-child(1) {
+    width: 1%;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   COLUNA DATA
+   ========================================================= */
+
+.doc-version-table th:nth-child(2),
+.doc-version-table td:nth-child(2) {
+    width: 1%;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   COLUNA DESCRIÇÃO
+   ========================================================= */
+
+.doc-version-table th:nth-child(3),
+.doc-version-table td:nth-child(3) {
+    width: auto;
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   CABEÇALHO DA TABELA
+   ========================================================= */
+
+.doc-version-table th {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-superficie);
+
+    font-weight: var(--peso-fonte-negrito);
+}
+
+
+/* =========================================================
+   CÉLULAS DA TABELA
+   ========================================================= */
+
+.doc-version-table td {
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       PÁGINA
+       ----------------------------------------------------- */
+
+    .doc-page {
+        padding: var(--espacamento-lg);
+    }
+
+
+    /* -----------------------------------------------------
+       CABEÇALHO
+       ----------------------------------------------------- */
+
+    .doc-header h1 {
+        font-size: var(--tamanho-texto-lg);
+    }
+
+
+    /* -----------------------------------------------------
+       METADADOS
+       ----------------------------------------------------- */
+
+    .doc-metadata {
+        float: none;
+
+        width: fit-content;
+        max-width: 100%;
+
+        margin-right: 0;
+        margin-bottom: var(--espacamento-md);
+    }
+
+
+    /* -----------------------------------------------------
+       CARDS
+       ----------------------------------------------------- */
+
+    .doc-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .doc-card {
+        width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+       FLUXO
+       ----------------------------------------------------- */
+
+    .doc-flow-row {
+        grid-template-columns: 1fr;
+    }
+
+    .doc-flow-key {
+        white-space: normal;
+    }
+
+    .doc-flow-value {
+        border-top: 1px solid var(--cor-borda);
+    }
+
+
+    /* -----------------------------------------------------
+       IMPORTANTE
+       ----------------------------------------------------- */
+
+    .doc-note {
+        max-width: 100%;
+    }
+}

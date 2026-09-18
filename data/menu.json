@@ -12,6 +12,12 @@
             "icone": "folder",
             "documentacoes": [
                 {
+                    "id": "introducao",
+                    "titulo": "Introdução",
+                    "icone": "description",
+                    "caminho": "contents/processos/projeto_de_curso/introducao.html"
+                },
+                {
                     "id": "subprocesso-01",
                     "titulo": "Consultar se o curso já existe no sistema",
                     "icone": "description",
