@@ -7,6 +7,7 @@
     padding: var(--espacamento-xs);
 }
 
+/* Apresentação */
 .menu-item-button {
     width: 100%;
     display: flex;
@@ -28,8 +29,8 @@
 }
 
 .menu-item-button.active {
-    background-color: var(--cor-fundo);
-    color: var(--cor-primaria);
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
 }
 
 .processos {
@@ -93,7 +94,7 @@
     gap: var(--espacamento-sm);
     width: 100%;
     padding: var(--espacamento-sm) var(--espacamento-md);
-    color: var(--cor-texto-secundario);
+    color: var(--cor-texto);
     border-radius: var(--raio-borda);
     cursor: pointer;
 }
@@ -105,17 +106,17 @@
 
 .documentacoes.active {
     background-color: var(--cor-fundo);
-    color: var(--cor-primaria);
-    font-weight: var(--peso-fonte-medio);
+    color: var(--cor-texto-secundario);
+    font-weight: var(--peso-fonte-negrito);
 }
 
 .documentacoes.active .icone-documentacao {
-    color: var(--cor-primaria);
+    color: var(--cor-texto-secundario);
 }
 
 .menu-group:has(.documentacoes.active) .menu-group-button {
-    background-color: var(--cor-fundo);
-    color: var(--cor-primaria);
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
 }
 
 .documentacoes a {

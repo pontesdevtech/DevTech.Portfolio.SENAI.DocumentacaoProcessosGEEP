@@ -1,14 +1,14 @@
 :root {
     /* Cores */
-    --cor-primaria: #005ca9;
-    --cor-secundaria: #003b6f;
+    --cor-primaria: #e7490f;
+    --cor-secundaria: #174292;
 
     --cor-fundo: #f5f6f8;
     --cor-superficie: #ffffff;
 
-    --cor-texto: #222222;
-    --cor-texto-secundario: #666666;
-    --cor-texto-destaque: #eeff00;
+    --cor-texto: #636363;
+    --cor-texto-secundario: #174292;
+    --cor-texto-destaque: #6bb9fa;
 
     --cor-borda: #dddddd;
 

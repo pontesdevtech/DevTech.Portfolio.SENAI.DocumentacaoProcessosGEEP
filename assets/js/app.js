@@ -57,6 +57,23 @@ document.addEventListener(
     "click",
     (event) => {
 
+
+    /* =================================================
+    MENU MOBILE
+    ================================================= */
+
+    const mobileMenuButton =
+        event.target.closest("#mobile-menu-button");
+
+    if (mobileMenuButton) {
+
+        alternarMenuMobile();
+
+        return;
+    }
+
+
+
         /* =================================================
            DOCUMENTAÇÃO
            ================================================= */
@@ -711,4 +728,42 @@ function configurarGifs() {
 
         observer.observe(gif);
     });
+}
+
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
+
+function alternarMenuMobile() {
+
+    const sidebar =
+        document.getElementById("sidebar");
+
+    const button =
+        document.getElementById("mobile-menu-button");
+
+    if (!sidebar || !button) {
+        return;
+    }
+
+    const aberto =
+        sidebar.classList.toggle("mobile-open");
+
+    button.setAttribute(
+        "aria-expanded",
+        aberto
+    );
+
+    const icon =
+        button.querySelector(
+            ".material-symbols-rounded"
+        );
+
+    if (icon) {
+
+        icon.textContent =
+            aberto
+                ? "close"
+                : "menu";
+    }
 }
