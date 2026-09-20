@@ -1,12 +1,8 @@
-// ============================================================
-// INICIALIZAÇÃO
-// ============================================================
-//
-// Carrega os componentes da aplicação, monta o menu e,
-// ao final, abre a tela de Apresentação como página inicial.
-// ============================================================
-
 document.addEventListener("DOMContentLoaded", async () => {
+
+    /* =====================================================
+       CARREGAR COMPONENTES
+       ===================================================== */
 
     await carregarComponent(
         "components/header.html",
@@ -18,310 +14,579 @@ document.addEventListener("DOMContentLoaded", async () => {
         "sidebar"
     );
 
+
+    /* =====================================================
+       CARREGAR MENU
+       ===================================================== */
+
     const menu = await carregarMenu();
 
-    // Carrega a Apresentação como página inicial.
-    carregarConteudo(menu.apresentacao.caminho);
 
-    // Marca a Apresentação como ativa.
+    /* =====================================================
+       CARREGAR PÁGINA INICIAL
+       ===================================================== */
+
+    if (
+        menu.apresentacao &&
+        menu.apresentacao.caminho
+    ) {
+        await carregarConteudo(
+            menu.apresentacao.caminho
+        );
+    }
+
+
+    /* =====================================================
+       ATIVAR APRESENTAÇÃO
+       ===================================================== */
+
     const apresentacao =
         document.querySelector(".menu-item-button");
 
     if (apresentacao) {
         apresentacao.classList.add("active");
     }
-
 });
 
 
-// ============================================================
-// EVENTOS DO MENU
-// ============================================================
+/* =========================================================
+   EVENTO GLOBAL DE CLIQUE
+   ========================================================= */
 
-document.addEventListener("click", (event) => {
+document.addEventListener(
+    "click",
+    (event) => {
 
-    // --------------------------------------------------------
-    // APRESENTAÇÃO
-    // --------------------------------------------------------
+        /* =================================================
+           DOCUMENTAÇÃO
+           ================================================= */
 
-    const apresentacao =
-        event.target.closest(".menu-item-button");
+        const documentacao =
+            event.target.closest(".documentacoes");
 
-    if (apresentacao) {
+        if (documentacao) {
 
-        resetarDocumentacoes();
-        recolherMenus();
+            /*
+             * Impede qualquer comportamento de navegação.
+             */
+            event.preventDefault();
 
-        apresentacao.classList.add("active");
-
-        carregarConteudo("contents/home.html");
-
-        return;
-    }
+            event.stopPropagation();
 
 
-    // --------------------------------------------------------
-    // PROCESSO
-    // --------------------------------------------------------
+            /* ---------------------------------------------
+               CAMINHO
+               --------------------------------------------- */
 
-    const button =
-        event.target.closest(".menu-group-button");
+            const caminho =
+                documentacao.dataset.caminho;
 
-    if (button) {
 
-        const menuGroup =
-            button.closest(".menu-group");
+            if (!caminho) {
 
-        if (!menuGroup) {
+                console.error(
+                    "Documentação sem caminho:",
+                    documentacao
+                );
+
+                return;
+            }
+
+
+            /* ---------------------------------------------
+               RESETAR ESTADOS
+               --------------------------------------------- */
+
+            resetarDocumentacoes();
+
+
+            /* ---------------------------------------------
+               ATIVAR DOCUMENTAÇÃO
+               --------------------------------------------- */
+
+            documentacao.classList.add("active");
+
+
+            /* ---------------------------------------------
+               ALTERAR ÍCONE
+               --------------------------------------------- */
+
+            const icon =
+                documentacao.querySelector(
+                    ".icone-documentacao"
+                );
+
+            if (icon) {
+                icon.textContent = "visibility";
+            }
+
+
+            /* ---------------------------------------------
+               CARREGAR CONTEÚDO
+               --------------------------------------------- */
+
+            carregarConteudo(caminho);
+
             return;
         }
 
-        menuGroup.classList.toggle("active");
 
-        const icon =
-            menuGroup.querySelector(".icone-processo");
+        /* =================================================
+           APRESENTAÇÃO
+           ================================================= */
 
-        if (icon) {
+        const apresentacao =
+            event.target.closest(
+                ".menu-item-button"
+            );
 
-            icon.textContent =
-                menuGroup.classList.contains("active")
-                    ? "folder_open"
-                    : "folder";
+        if (apresentacao) {
 
+            resetarDocumentacoes();
+
+            recolherMenus();
+
+            apresentacao.classList.add("active");
+
+            carregarConteudo(
+                "contents/home.html"
+            );
+
+            return;
         }
 
-        return;
-    }
+
+        /* =================================================
+           GRUPO DE PROCESSO
+           ================================================= */
+
+        const menuGroupButton =
+            event.target.closest(
+                ".menu-group-button"
+            );
+
+        if (menuGroupButton) {
+
+            const menuGroup =
+                menuGroupButton.closest(
+                    ".menu-group"
+                );
+
+            if (!menuGroup) {
+                return;
+            }
 
 
-    // --------------------------------------------------------
-    // DOCUMENTAÇÃO
-    // --------------------------------------------------------
+            menuGroup.classList.toggle(
+                "active"
+            );
 
-    const documentacao =
-        event.target.closest(".documentacoes");
 
-    if (!documentacao) {
-        return;
-    }
+            const icon =
+                menuGroup.querySelector(
+                    ".icone-processo"
+                );
 
-    resetarDocumentacoes();
+            if (icon) {
 
-    documentacao.classList.add("active");
+                icon.textContent =
+                    menuGroup.classList.contains(
+                        "active"
+                    )
+                        ? "folder_open"
+                        : "folder";
+            }
 
-    const icon =
-        documentacao.querySelector(
-            ".icone-documentacao"
+            return;
+        }
+
+    },
+    true
+);
+
+
+/* =========================================================
+   CARREGAR COMPONENTE
+   ========================================================= */
+
+async function carregarComponent(
+    componente,
+    destino
+) {
+
+    try {
+
+        const response =
+            await fetch(componente);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Erro ${response.status} ao carregar ${componente}`
+            );
+        }
+
+
+        const html =
+            await response.text();
+
+
+        const elemento =
+            document.getElementById(destino);
+
+
+        if (!elemento) {
+
+            console.error(
+                `Elemento #${destino} não encontrado.`
+            );
+
+            return;
+        }
+
+
+        elemento.innerHTML = html;
+
+    } catch (error) {
+
+        console.error(
+            "Erro ao carregar componente:",
+            error
         );
-
-    if (icon) {
-        icon.textContent = "visibility";
     }
-
-});
-
-
-// ============================================================
-// FUNÇÕES
-// ============================================================
-
-
-// ------------------------------------------------------------
-// carregarComponent()
-//
-// Carrega um componente HTML e insere seu conteúdo
-// no elemento indicado pelo ID.
-// ------------------------------------------------------------
-
-async function carregarComponent(componente, destino) {
-
-    const response =
-        await fetch(componente);
-
-    const html =
-        await response.text();
-
-    document
-        .getElementById(destino)
-        .innerHTML = html;
 }
 
 
-// ------------------------------------------------------------
-// carregarMenu()
-//
-// Lê o menu.json e cria dinamicamente todos os processos
-// e suas respectivas documentações.
-// ------------------------------------------------------------
+/* =========================================================
+   CARREGAR MENU
+   ========================================================= */
 
 async function carregarMenu() {
 
-    const response =
-        await fetch("data/menu.json");
+    try {
 
-    const menu =
-        await response.json();
-
-    const sidebarMenu =
-        document.querySelector(".sidebar-menu");
+        const response =
+            await fetch("data/menu.json");
 
 
-    menu.processos.forEach((processo) => {
+        if (!response.ok) {
 
-        // Cria o grupo do processo.
-        const menuGroup =
-            document.createElement("div");
-
-        menuGroup.classList.add("menu-group");
-
-
-        // Cria o botão do processo.
-        const button =
-            document.createElement("button");
-
-        button.classList.add(
-            "menu-group-button"
-        );
+            throw new Error(
+                `Erro ${response.status} ao carregar menu.json`
+            );
+        }
 
 
-        // Cria o ícone do processo.
-        const icon =
-            document.createElement("span");
-
-        icon.classList.add(
-            "material-symbols-rounded",
-            "icone-processo"
-        );
-
-        icon.textContent =
-            processo.icone;
+        const menu =
+            await response.json();
 
 
-        button.appendChild(icon);
-
-        button.appendChild(
-            document.createTextNode(
-                processo.titulo
-            )
-        );
+        const sidebarMenu =
+            document.querySelector(
+                ".sidebar-menu"
+            );
 
 
-        // Cria o submenu.
-        const submenu =
-            document.createElement("div");
+        if (!sidebarMenu) {
 
-        submenu.classList.add("submenu");
+            console.error(
+                "Elemento .sidebar-menu não encontrado."
+            );
+
+            return menu;
+        }
 
 
-        // Cria as documentações do processo.
-        processo.documentacoes.forEach(
-            (documentacao) => {
+        /* =================================================
+           PROCESSOS
+           ================================================= */
 
-                const documentacaoElement =
+        menu.processos.forEach(
+            (processo) => {
+
+                /* -----------------------------------------
+                   GRUPO
+                   ----------------------------------------- */
+
+                const menuGroup =
                     document.createElement("div");
 
-                documentacaoElement.classList.add(
-                    "documentacoes"
+                menuGroup.classList.add(
+                    "menu-group"
                 );
 
 
-                // Ícone da documentação.
-                const iconDoc =
+                /* -----------------------------------------
+                   BOTÃO DO PROCESSO
+                   ----------------------------------------- */
+
+                const button =
+                    document.createElement("button");
+
+                button.type = "button";
+
+                button.classList.add(
+                    "menu-group-button"
+                );
+
+
+                /* Ícone */
+
+                const icon =
                     document.createElement("span");
 
-                iconDoc.classList.add(
+                icon.classList.add(
                     "material-symbols-rounded",
-                    "icone-documentacao"
+                    "icone-processo"
                 );
 
-                iconDoc.textContent =
-                    documentacao.icone;
+                icon.textContent =
+                    processo.icone;
 
 
-                // Link da documentação.
-                const link =
-                    document.createElement("a");
+                /* Texto */
 
-                link.href =
-                    documentacao.caminho;
+                const textoProcesso =
+                    document.createElement("span");
 
-                link.textContent =
-                    documentacao.titulo;
+                textoProcesso.textContent =
+                    processo.titulo;
 
 
-                // Carrega o conteúdo sem sair do index.html.
-                link.addEventListener(
-                    "click",
-                    (event) => {
+                button.appendChild(icon);
 
-                        event.preventDefault();
+                button.appendChild(
+                    textoProcesso
+                );
 
-                        carregarConteudo(
-                            documentacao.caminho
+
+                /* -----------------------------------------
+                   SUBMENU
+                   ----------------------------------------- */
+
+                const submenu =
+                    document.createElement("div");
+
+                submenu.classList.add(
+                    "submenu"
+                );
+
+
+                /* =================================================
+                   DOCUMENTAÇÕES
+                   ================================================= */
+
+                processo.documentacoes.forEach(
+                    (documentacao) => {
+
+                        const documentacaoElement =
+                            document.createElement("div");
+
+
+                        documentacaoElement.classList.add(
+                            "documentacoes"
                         );
 
+
+                        /*
+                         * Guarda o caminho no próprio
+                         * elemento.
+                         */
+
+                        documentacaoElement.dataset.caminho =
+                            documentacao.caminho;
+
+
+                        /* -------------------------------------
+                           ÍCONE
+                           ------------------------------------- */
+
+                        const iconDoc =
+                            document.createElement("span");
+
+                        iconDoc.classList.add(
+                            "material-symbols-rounded",
+                            "icone-documentacao"
+                        );
+
+                        iconDoc.textContent =
+                            documentacao.icone;
+
+
+                        /* -------------------------------------
+                           TEXTO
+                           ------------------------------------- */
+
+                        const textoDocumentacao =
+                            document.createElement("span");
+
+                        textoDocumentacao.classList.add(
+                            "documentacao-link"
+                        );
+
+                        textoDocumentacao.textContent =
+                            documentacao.titulo;
+
+
+                        /*
+                         * IMPORTANTE:
+                         *
+                         * NÃO usamos <a>.
+                         *
+                         * O texto é um <span>.
+                         */
+
+                        documentacaoElement.appendChild(
+                            iconDoc
+                        );
+
+                        documentacaoElement.appendChild(
+                            textoDocumentacao
+                        );
+
+
+                        submenu.appendChild(
+                            documentacaoElement
+                        );
                     }
                 );
 
 
-                documentacaoElement.appendChild(
-                    iconDoc
+                /* -----------------------------------------
+                   MONTAR GRUPO
+                   ----------------------------------------- */
+
+                menuGroup.appendChild(
+                    button
                 );
 
-                documentacaoElement.appendChild(
-                    link
+                menuGroup.appendChild(
+                    submenu
                 );
 
-                submenu.appendChild(
-                    documentacaoElement
-                );
 
+                sidebarMenu.appendChild(
+                    menuGroup
+                );
             }
         );
 
 
-        // Monta o processo.
-        menuGroup.appendChild(button);
-        menuGroup.appendChild(submenu);
+        return menu;
 
-        // Adiciona o processo ao sidebar.
-        sidebarMenu.appendChild(menuGroup);
+    } catch (error) {
 
-    });
+        console.error(
+            "Erro ao carregar menu:",
+            error
+        );
 
 
-    // Retorna o menu para que outras partes da aplicação
-    // possam utilizar suas informações.
-    return menu;
+        return {
+            processos: []
+        };
+    }
 }
 
 
-// ------------------------------------------------------------
-// carregarConteudo()
-//
-// Carrega um arquivo HTML dentro do elemento #content.
-// ------------------------------------------------------------
+/* =========================================================
+   CARREGAR CONTEÚDO
+   ========================================================= */
 
 async function carregarConteudo(caminho) {
 
-    const response =
-        await fetch(caminho);
+    const content =
+        document.getElementById("content");
 
-    const html =
-        await response.text();
 
-    document
-        .getElementById("content")
-        .innerHTML = html;
+    if (!content) {
+
+        console.error(
+            "Elemento #content não encontrado."
+        );
+
+        return;
+    }
+
+
+    if (!caminho) {
+
+        console.error(
+            "Caminho não informado."
+        );
+
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(caminho);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Erro ${response.status} ao carregar ${caminho}`
+            );
+        }
+
+
+        const html =
+            await response.text();
+
+
+        /* ---------------------------------------------
+           INSERIR DOCUMENTAÇÃO
+           --------------------------------------------- */
+
+        content.innerHTML = html;
+
+
+        /* ---------------------------------------------
+           RESETAR SCROLL
+           --------------------------------------------- */
+
+        content.scrollTop = 0;
+
+
+        /* ---------------------------------------------
+           CONFIGURAR GIFS
+           --------------------------------------------- */
+
+        configurarGifs();
+
+    } catch (error) {
+
+        console.error(
+            "Erro ao carregar conteúdo:",
+            error
+        );
+
+
+        content.innerHTML = `
+            <div class="doc-page">
+                <h1>Erro ao carregar conteúdo</h1>
+
+                <p>
+                    Não foi possível carregar a documentação.
+                </p>
+
+                <p>
+                    <strong>Arquivo:</strong>
+                    ${caminho}
+                </p>
+            </div>
+        `;
+    }
 }
 
 
-// ------------------------------------------------------------
-// resetarDocumentacoes()
-//
-// Remove a seleção das documentações e restaura seus ícones.
-// Também remove a seleção da Apresentação.
-// ------------------------------------------------------------
+/* =========================================================
+   RESETAR DOCUMENTAÇÕES
+   ========================================================= */
 
 function resetarDocumentacoes() {
 
@@ -331,15 +596,18 @@ function resetarDocumentacoes() {
 
             item.classList.remove("active");
 
+
             const icon =
                 item.querySelector(
                     ".icone-documentacao"
                 );
 
-            if (icon) {
-                icon.textContent = "description";
-            }
 
+            if (icon) {
+
+                icon.textContent =
+                    "description";
+            }
         });
 
 
@@ -348,16 +616,13 @@ function resetarDocumentacoes() {
         .forEach((item) => {
 
             item.classList.remove("active");
-
         });
 }
 
 
-// ------------------------------------------------------------
-// recolherMenus()
-//
-// Fecha todos os processos abertos e restaura seus ícones.
-// ------------------------------------------------------------
+/* =========================================================
+   RECOLHER MENUS
+   ========================================================= */
 
 function recolherMenus() {
 
@@ -365,16 +630,85 @@ function recolherMenus() {
         .querySelectorAll(".menu-group")
         .forEach((menuGroup) => {
 
-            menuGroup.classList.remove("active");
+            menuGroup.classList.remove(
+                "active"
+            );
+
 
             const icon =
                 menuGroup.querySelector(
                     ".icone-processo"
                 );
 
-            if (icon) {
-                icon.textContent = "folder";
-            }
 
+            if (icon) {
+
+                icon.textContent =
+                    "folder";
+            }
         });
+}
+
+
+/* =========================================================
+   CONFIGURAR GIFS
+   ========================================================= */
+
+function configurarGifs() {
+
+    const content =
+        document.getElementById("content");
+
+
+    if (!content) {
+        return;
+    }
+
+
+    const gifs =
+        content.querySelectorAll(
+            ".doc-figure img[src$='.gif']"
+        );
+
+
+    if (!gifs.length) {
+        return;
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+
+                    const gif =
+                        entry.target;
+
+
+                    const src =
+                        gif.src;
+
+
+                    gif.src = "";
+
+                    gif.src = src;
+                });
+            },
+            {
+                root: content,
+                threshold: 0.3
+            }
+        );
+
+
+    gifs.forEach((gif) => {
+
+        observer.observe(gif);
+    });
 }

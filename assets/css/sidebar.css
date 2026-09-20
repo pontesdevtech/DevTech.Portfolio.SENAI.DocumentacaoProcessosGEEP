@@ -91,12 +91,10 @@
     display: flex;
     align-items: center;
     gap: var(--espacamento-sm);
-
+    width: 100%;
     padding: var(--espacamento-sm) var(--espacamento-md);
-
     color: var(--cor-texto-secundario);
     border-radius: var(--raio-borda);
-
     cursor: pointer;
 }
 
@@ -118,4 +116,13 @@
 .menu-group:has(.documentacoes.active) .menu-group-button {
     background-color: var(--cor-fundo);
     color: var(--cor-primaria);
+}
+
+.documentacoes a {
+    pointer-events: none;
+}
+
+.documentacoes .documentacao-link {
+    flex: 1;
+    pointer-events: none;
 }
