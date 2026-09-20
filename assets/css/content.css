@@ -4,7 +4,8 @@
 
 .doc-page {
     width: 100%;
-    padding: var(--espacamento-xl);
+    box-sizing: border-box;
+    padding: var(--espacamento-lg);
     color: var(--cor-texto);
 }
 

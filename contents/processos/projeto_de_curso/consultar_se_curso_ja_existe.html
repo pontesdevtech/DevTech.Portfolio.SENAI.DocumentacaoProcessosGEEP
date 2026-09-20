@@ -1,5 +1,360 @@
-<h1>Consultar se o curso já existe no sistema</h1>
-<br>
-<p>
-    Teste: Consultar se o curso já existe no sistema
-</p>
+<main class="doc-page">
+
+    <!-- =================================================
+         CABEÇALHO DO DOCUMENTO
+         ================================================= -->
+
+    <header class="doc-header">
+
+        <h1>Consulta de Existência de Curso no SGE</h1>
+
+        <!-- =================================================
+             IDENTIFICAÇÃO DO DOCUMENTO
+             ================================================= -->
+
+        <div class="doc-metadata">
+
+            <div class="doc-metadata-item">
+                <span class="doc-metadata-key">PROCESSO</span>
+                <strong class="doc-metadata-value">PROC.RE001</strong>
+            </div>
+
+            <div class="doc-metadata-item">
+                <span class="doc-metadata-key">DOCUMENTAÇÃO</span>
+                <strong class="doc-metadata-value">DOC.002A</strong>
+            </div>
+
+            <div class="doc-metadata-item">
+                <span class="doc-metadata-key">VERSÃO</span>
+                <strong class="doc-metadata-value">v1.0 [19/09/2026]</strong>
+            </div>
+
+        </div>
+
+        <p>
+            Antes de criar um curso no SGE, verifique se ele já está cadastrado e se atende à
+            necessidade. Essa análise evita a criação de cursos ou matrizes curriculares
+            duplicadas e permite identificar qual estrutura deve ser utilizada ou criada.
+        </p>
+
+    </header>
+
+
+    <!-- =====================================================
+         1. VISÃO GERAL
+         ===================================================== -->
+
+    <section class="doc-section" id="visao-geral">
+
+        <h2>1. Consulta do curso</h2>
+
+        <p>
+            No SGE, acesse <strong>Educacional → Currículo e Oferta → Cursos</strong>, selecione
+            a <strong>modalidade</strong> desejada e, no campo de pesquisa, informe o nome do
+            curso ou parte dele. Em seguida, clique em <strong>Ocultar registros</strong> para
+            que sejam exibidos somente os registros relacionados à pesquisa.
+        </p>
+
+        <figure class="doc-figure">
+            <div class="doc-image-placeholder">
+                <span>GIF</span>
+            </div>
+            <figcaption class="doc-caption">
+                Acesso à tela de cursos, seleção da modalidade e realização da pesquisa.
+            </figcaption>
+        </figure>
+
+        <p>
+            A existência de um curso com o mesmo nome não é suficiente para considerá-lo
+            correspondente. Verifique também o <strong>tipo de mediação</strong>, a
+            <strong>área tecnológica</strong>, o <strong>eixo tecnológico</strong>, o
+            <strong>perfil profissional de conclusão (Competência Geral)</strong> e os
+            <strong>objetivos do curso</strong>. O curso somente será considerado correspondente
+            quando todas essas características estiverem de acordo com a necessidade.
+        </p>
+
+        <aside class="doc-note">
+            <strong>Regra de validação</strong>
+            <p>
+                Um curso com o mesmo nome, mas com configurações diferentes, não deve ser
+                considerado equivalente ao curso desejado.
+            </p>
+        </aside>
+
+    </section>
+
+
+    <!-- =====================================================
+         2. ANÁLISE DA MATRIZ
+         ===================================================== -->
+
+    <section class="doc-section" id="analise-matriz">
+
+        <h2>2. Análise da matriz curricular</h2>
+
+        <p>
+            Quando o curso atender às características necessárias, verifique se existe uma
+            <strong>matriz curricular adequada</strong>. Um curso pode possuir várias matrizes,
+            cada uma com seu próprio status, como <strong>ativa</strong> ou
+            <strong>inativa</strong>. Para utilização na execução do curso, devem ser
+            consideradas as matrizes ativas.
+        </p>
+
+        <p>
+            A estrutura do curso no SGE segue a hierarquia
+            <strong>Curso → Habilitação → Matriz Curricular → Períodos/Módulos → Disciplinas</strong>.
+            No contexto do SENAI, normalmente existe uma habilitação vinculada ao curso.
+        </p>
+
+        <div class="doc-cards">
+
+            <article class="doc-card">
+                <h3>Curso</h3>
+                <p>Contém as informações gerais que caracterizam o curso.</p>
+            </article>
+
+            <article class="doc-card">
+                <h3>Habilitação</h3>
+                <p>Está vinculada ao curso e, no contexto do SENAI, normalmente é única.</p>
+            </article>
+
+            <article class="doc-card">
+                <h3>Matriz curricular</h3>
+                <p>Define a estrutura curricular e pode possuir diferentes status.</p>
+            </article>
+
+            <article class="doc-card">
+                <h3>Períodos / Módulos</h3>
+                <p>Representam os módulos que compõem a matriz curricular.</p>
+            </article>
+
+            <article class="doc-card">
+                <h3>Disciplinas</h3>
+                <p>São os componentes que integram cada período ou módulo.</p>
+            </article>
+
+        </div>
+
+        <p>
+            Na tela do curso, acesse o anexo <strong>Matriz Curricular</strong>, abra a matriz
+            que deseja analisar e gere o relatório em
+            <strong>Anexo → Relatórios → Plano de Curso</strong>. Utilize o relatório para
+            verificar se as configurações da matriz e sua estrutura de períodos/módulos e
+            disciplinas correspondem à necessidade.
+        </p>
+
+        <figure class="doc-figure">
+            <div class="doc-image-placeholder">
+                <span>GIF</span>
+            </div>
+            <figcaption class="doc-caption">
+                Acesso à matriz curricular e geração do Plano de Curso.
+            </figcaption>
+        </figure>
+
+        <aside class="doc-note">
+            <strong>Importante</strong>
+            <p>
+                Não basta existir uma matriz. É necessário que ela seja aderente à necessidade
+                e esteja ativa para utilização.
+            </p>
+        </aside>
+
+    </section>
+
+
+<!-- =====================================================
+         3. RESULTADOS
+         ===================================================== -->
+
+    <section class="doc-section" id="resultados">
+
+        <h2>3. Resultado da análise</h2>
+
+        <p>
+            A análise do curso e da matriz curricular pode levar a três situações. O procedimento
+            a ser realizado depende da existência do curso e da existência de uma matriz ativa e
+            aderente à necessidade.
+        </p>
+
+        <div class="doc-cards">
+
+            <article class="doc-card">
+                <h3>Curso não existe</h3>
+                <p>
+                    <strong>Situação: </strong>Nenhum curso cadastrado atende às características necessárias.
+                </p>
+                <p>
+                <strong>Ação: </strong>Crie toda a estrutura necessária: Curso → Habilitação → Matriz Curricular → Períodos/Módulos → Disciplinas.
+            </p>
+            </article>
+
+            <article class="doc-card">
+                <h3>Curso existente, mas sem matriz adequada</h3>
+                <p>
+                    <strong>Situação: </strong>O curso atende às características, mas nenhuma matriz existente corresponde
+                    à necessidade.
+                </p>
+                <p>
+                    <strong>Ação: </strong>Mantenha o curso existente e crie apenas uma nova matriz curricular, incluindo
+                    seus respectivos períodos/módulos e disciplinas.
+            </p>
+            </article>
+
+            <article class="doc-card">
+                <h3>Curso e matriz existem</h3>
+                <p>
+                    <strong>Situação: </strong>O curso e uma matriz ativa e aderente já estão disponíveis para utilização.
+                </p>
+                <p>
+                    <strong>Ação: </strong>Não é necessário criar uma nova estrutura. Solicite, pelos meios formais
+                    estabelecidos pela Gerência Executiva de Educação Profissional (GEEP),
+                    a liberação ou autorização para execução do curso na unidade.
+            </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         4. FLUXO GERAL
+         ===================================================== -->
+
+    <section class="doc-section" id="fluxo-geral">
+
+        <h2>4. Visão geral do fluxo</h2>
+
+        <p>
+            A decisão deve ser tomada em duas etapas: primeiro, verificar se o curso atende às
+            características necessárias; depois, verificar se existe uma matriz curricular ativa
+            e aderente à necessidade.
+        </p>
+
+        <div class="doc-flow-table">
+
+            <div class="doc-flow-row">
+                <div class="doc-flow-key">
+                    <span>1.</span>
+                    <strong>Consultar o curso</strong>
+                </div>
+                <div class="doc-flow-value">
+                    Acesse Cursos, selecione a modalidade e pesquise pelo nome ou parte do nome.
+                </div>
+            </div>
+
+            <div class="doc-flow-row">
+                <div class="doc-flow-key">
+                    <span>2.</span>
+                    <strong>Validar o curso</strong>
+                </div>
+                <div class="doc-flow-value">
+                    Confira nome, mediação, área tecnológica, eixo tecnológico, competência geral
+                    e objetivos.
+                </div>
+            </div>
+
+            <div class="doc-flow-row">
+                <div class="doc-flow-key">
+                    <span>3.</span>
+                    <strong>Verificar a matriz</strong>
+                </div>
+                <div class="doc-flow-value">
+                    Analise a matriz curricular, seu status e a estrutura de períodos/módulos e
+                    disciplinas por meio do Plano de Curso.
+                </div>
+            </div>
+
+            <div class="doc-flow-row">
+                <div class="doc-flow-key">
+                    <span>4.</span>
+                    <strong>Definir a ação</strong>
+                </div>
+                <div class="doc-flow-value">
+                    Crie a estrutura necessária ou solicite a liberação/autorização para execução
+                    na unidade, conforme o resultado da análise.
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         5. RESUMO
+         ===================================================== -->
+
+    <section class="doc-section" id="resumo">
+
+        <h2>5. Resumo do processo</h2>
+
+        <p>
+            A consulta deve sempre considerar dois níveis de validação: <strong>curso</strong> e
+            <strong>matriz curricular</strong>. Somente após confirmar as características do curso
+            e a aderência da matriz será possível definir se será necessário criar uma nova
+            estrutura ou solicitar a liberação para utilização.
+        </p>
+
+        <ul>
+            <li>
+                <strong>Curso não atende:</strong>
+                criar o curso e toda a sua estrutura.
+            </li>
+
+            <li>
+                <strong>Curso atende, mas não há matriz adequada:</strong>
+                criar uma nova matriz dentro do curso existente.
+            </li>
+
+            <li>
+                <strong>Curso e matriz atendem:</strong>
+                solicitar a liberação ou autorização para execução na unidade.
+            </li>
+        </ul>
+
+    </section>
+
+
+    <!-- =====================================================
+         HISTÓRICO DE VERSÕES
+         ===================================================== -->
+
+    <section
+        class="doc-section doc-version-history"
+        id="historico-versoes"
+    >
+
+        <h2>Histórico de versões</h2>
+
+        <div class="doc-version-table">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Versão</th>
+                        <th>Data</th>
+                        <th>Descrição da alteração</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1.0</td>
+                        <td>19/09/2026</td>
+                        <td>
+                            Criação da documentação do processo de consulta de existência de curso
+                            no SGE.
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
