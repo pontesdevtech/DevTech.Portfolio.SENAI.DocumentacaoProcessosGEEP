@@ -1,4 +1,9 @@
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
 #header {
+
     display: flex;
     align-items: center;
 
@@ -8,42 +13,100 @@
     color: var(--cor-superficie);
 }
 
+
+/* =========================================================
+   CONTEÚDO DO CABEÇALHO
+   ========================================================= */
+
 .header-content {
+
     width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    gap: var(--espacamento-lg);
 }
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
 
 .header-brand {
+
     display: flex;
     align-items: center;
+
+    flex-shrink: 0;
 }
 
-.header-title {
-    font-size: var(--tamanho-texto-xl);
-    font-weight: var(--peso-fonte-negrito);
-}
 
 .header-logo {
+
+    display: block;
+
     width: 200px;
     height: auto;
 
     margin-right: 40px;
 }
 
-.header-search {
+
+/* =========================================================
+   TÍTULO DA PÁGINA
+   ========================================================= */
+
+.header-page {
+
     display: flex;
     align-items: center;
+
+    flex: 1;
+    min-width: 0;
 
     gap: var(--espacamento-sm);
 }
 
+
+.header-title {
+
+    display: block;
+
+    min-width: 0;
+
+    color: var(--cor-superficie);
+
+    font-size: var(--tamanho-texto-xl);
+    font-weight: var(--peso-fonte-negrito);
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   PESQUISA
+   ========================================================= */
+
+.header-search {
+
+    display: flex;
+    align-items: center;
+
+    gap: var(--espacamento-sm);
+
+    flex-shrink: 0;
+}
+
+
 .header-search input {
+
     width: var(--largura-pesquisa);
-    padding: var(--espacamento-sm) var(--espacamento-md);
+
+    padding:
+        var(--espacamento-sm)
+        var(--espacamento-md);
 
     border: none;
     border-radius: var(--raio-borda);
@@ -53,12 +116,19 @@
     outline: none;
 }
 
+
 .header-search input:focus {
-    box-shadow: 0 0 0 2px var(--cor-secundaria);
+
+    box-shadow:
+        0 0 0 2px var(--cor-secundaria);
 }
 
+
 .header-search button {
-    padding: var(--espacamento-sm) var(--espacamento-md);
+
+    padding:
+        var(--espacamento-sm)
+        var(--espacamento-md);
 
     border: none;
     border-radius: var(--raio-borda);
@@ -72,19 +142,25 @@
     cursor: pointer;
 }
 
+
 .header-search button:hover {
+
     opacity: 0.9;
 }
 
+
 .header-search button:active {
+
     opacity: 0.8;
 }
+
 
 /* =========================================================
    BOTÃO DO MENU MOBILE
    ========================================================= */
 
 .mobile-menu-button {
+
     display: none;
 
     align-items: center;
@@ -99,30 +175,146 @@
     border-radius: var(--raio-borda);
 
     background-color: transparent;
-
     color: var(--cor-superficie);
 
     cursor: pointer;
+
+    flex-shrink: 0;
 }
 
+
 .mobile-menu-button:hover {
+
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+
 .mobile-menu-button .material-symbols-rounded {
+
     font-size: 24px;
 }
 
+
 /* =========================================================
-   RESPONSIVIDADE — SMARTPHONES
+   RESPONSIVIDADE — MOBILE
    ========================================================= */
 
 @media (max-width: 768px) {
 
+    /* -----------------------------------------------------
+       HEADER
+       ----------------------------------------------------- */
+
+    #header {
+
+        padding:
+            var(--espacamento-sm)
+            var(--espacamento-md);
+    }
+
+
+    /* -----------------------------------------------------
+       ESTRUTURA
+
+       Linha 1:
+       LOGO
+
+       Linha 2:
+       MENU + TÍTULO
+       ----------------------------------------------------- */
+
+    .header-content {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+        justify-content: center;
+
+        gap: var(--espacamento-sm);
+    }
+
+
+    /* -----------------------------------------------------
+       LOGO
+       ----------------------------------------------------- */
+
+    .header-brand {
+
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .header-logo {
+
+        width: 150px;
+
+        margin-right: 0;
+    }
+
+
+    /* -----------------------------------------------------
+       TÍTULO + MENU
+       ----------------------------------------------------- */
+
+    .header-page {
+
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        gap: var(--espacamento-sm);
+    }
+
+
+    /* -----------------------------------------------------
+       BOTÃO MENU
+       ----------------------------------------------------- */
+
     .mobile-menu-button {
+
         display: flex;
 
         flex-shrink: 0;
+    }
+
+
+    /* -----------------------------------------------------
+       TÍTULO
+       ----------------------------------------------------- */
+
+    .header-title {
+
+        flex: 1;
+
+        min-width: 0;
+        margin-left: 20px;
+
+        font-size: var(--tamanho-texto-lg);
+
+        line-height: 1.3;
+
+        /*white-space: nowrap;*/
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+
+    /* -----------------------------------------------------
+       PESQUISA
+       ----------------------------------------------------- */
+
+    .header-search {
+
+        display: none;
     }
 
 }
