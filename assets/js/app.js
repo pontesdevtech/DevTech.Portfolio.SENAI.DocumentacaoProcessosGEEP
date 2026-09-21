@@ -30,9 +30,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         menu.apresentacao &&
         menu.apresentacao.caminho
     ) {
+
         await carregarConteudo(
             menu.apresentacao.caminho
         );
+
     }
 
 
@@ -41,11 +43,18 @@ document.addEventListener("DOMContentLoaded", async () => {
        ===================================================== */
 
     const apresentacao =
-        document.querySelector(".menu-item-button");
+        document.querySelector(
+            ".menu-item-button"
+        );
 
     if (apresentacao) {
-        apresentacao.classList.add("active");
+
+        apresentacao.classList.add(
+            "active"
+        );
+
     }
+
 });
 
 
@@ -58,20 +67,22 @@ document.addEventListener(
     (event) => {
 
 
-    /* =================================================
-    MENU MOBILE
-    ================================================= */
+        /* =================================================
+           BOTÃO DO MENU MOBILE
+           ================================================= */
 
-    const mobileMenuButton =
-        event.target.closest("#mobile-menu-button");
+        const mobileMenuButton =
+            event.target.closest(
+                "#mobile-menu-button"
+            );
 
-    if (mobileMenuButton) {
 
-        alternarMenuMobile();
+        if (mobileMenuButton) {
 
-        return;
-    }
+            alternarMenuMobile();
 
+            return;
+        }
 
 
         /* =================================================
@@ -79,14 +90,26 @@ document.addEventListener(
            ================================================= */
 
         const documentacao =
-            event.target.closest(".documentacoes");
+            event.target.closest(
+                ".documentacoes"
+            );
+
 
         if (documentacao) {
 
             /*
-             * Impede qualquer comportamento de navegação.
+             * Impede qualquer comportamento
+             * padrão de navegação.
              */
+
             event.preventDefault();
+
+
+            /*
+             * Impede que o clique continue
+             * sendo processado por outros
+             * listeners.
+             */
 
             event.stopPropagation();
 
@@ -121,7 +144,9 @@ document.addEventListener(
                ATIVAR DOCUMENTAÇÃO
                --------------------------------------------- */
 
-            documentacao.classList.add("active");
+            documentacao.classList.add(
+                "active"
+            );
 
 
             /* ---------------------------------------------
@@ -133,8 +158,12 @@ document.addEventListener(
                     ".icone-documentacao"
                 );
 
+
             if (icon) {
-                icon.textContent = "visibility";
+
+                icon.textContent =
+                    "visibility";
+
             }
 
 
@@ -142,7 +171,17 @@ document.addEventListener(
                CARREGAR CONTEÚDO
                --------------------------------------------- */
 
-            carregarConteudo(caminho);
+            carregarConteudo(
+                caminho
+            );
+
+
+            /* ---------------------------------------------
+               FECHAR MENU MOBILE
+               --------------------------------------------- */
+
+            fecharMenuMobile();
+
 
             return;
         }
@@ -157,17 +196,45 @@ document.addEventListener(
                 ".menu-item-button"
             );
 
+
         if (apresentacao) {
+
+            event.preventDefault();
+
+
+            /* ---------------------------------------------
+               RESETAR ESTADOS
+               --------------------------------------------- */
 
             resetarDocumentacoes();
 
             recolherMenus();
 
-            apresentacao.classList.add("active");
+
+            /* ---------------------------------------------
+               ATIVAR APRESENTAÇÃO
+               --------------------------------------------- */
+
+            apresentacao.classList.add(
+                "active"
+            );
+
+
+            /* ---------------------------------------------
+               CARREGAR CONTEÚDO
+               --------------------------------------------- */
 
             carregarConteudo(
                 "contents/home.html"
             );
+
+
+            /* ---------------------------------------------
+               FECHAR MENU MOBILE
+               --------------------------------------------- */
+
+            fecharMenuMobile();
+
 
             return;
         }
@@ -182,27 +249,46 @@ document.addEventListener(
                 ".menu-group-button"
             );
 
+
         if (menuGroupButton) {
+
+            event.preventDefault();
+
+
+            /* ---------------------------------------------
+               LOCALIZAR GRUPO
+               --------------------------------------------- */
 
             const menuGroup =
                 menuGroupButton.closest(
                     ".menu-group"
                 );
 
+
             if (!menuGroup) {
+
                 return;
             }
 
+
+            /* ---------------------------------------------
+               ABRIR / FECHAR GRUPO
+               --------------------------------------------- */
 
             menuGroup.classList.toggle(
                 "active"
             );
 
 
+            /* ---------------------------------------------
+               ALTERAR ÍCONE
+               --------------------------------------------- */
+
             const icon =
                 menuGroup.querySelector(
                     ".icone-processo"
                 );
+
 
             if (icon) {
 
@@ -212,9 +298,36 @@ document.addEventListener(
                     )
                         ? "folder_open"
                         : "folder";
+
             }
 
+
             return;
+        }
+
+
+        /* =================================================
+           CLIQUE FORA DO MENU
+           ================================================= */
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+
+        if (
+            sidebar &&
+            sidebar.classList.contains(
+                "mobile-open"
+            ) &&
+            !sidebar.contains(
+                event.target
+            )
+        ) {
+
+            fecharMenuMobile();
+
         }
 
     },
@@ -234,7 +347,9 @@ async function carregarComponent(
     try {
 
         const response =
-            await fetch(componente);
+            await fetch(
+                componente
+            );
 
 
         if (!response.ok) {
@@ -242,6 +357,7 @@ async function carregarComponent(
             throw new Error(
                 `Erro ${response.status} ao carregar ${componente}`
             );
+
         }
 
 
@@ -250,7 +366,9 @@ async function carregarComponent(
 
 
         const elemento =
-            document.getElementById(destino);
+            document.getElementById(
+                destino
+            );
 
 
         if (!elemento) {
@@ -263,7 +381,9 @@ async function carregarComponent(
         }
 
 
-        elemento.innerHTML = html;
+        elemento.innerHTML =
+            html;
+
 
     } catch (error) {
 
@@ -271,7 +391,9 @@ async function carregarComponent(
             "Erro ao carregar componente:",
             error
         );
+
     }
+
 }
 
 
@@ -284,7 +406,9 @@ async function carregarMenu() {
     try {
 
         const response =
-            await fetch("data/menu.json");
+            await fetch(
+                "data/menu.json"
+            );
 
 
         if (!response.ok) {
@@ -292,6 +416,7 @@ async function carregarMenu() {
             throw new Error(
                 `Erro ${response.status} ao carregar menu.json`
             );
+
         }
 
 
@@ -322,12 +447,16 @@ async function carregarMenu() {
         menu.processos.forEach(
             (processo) => {
 
+
                 /* -----------------------------------------
                    GRUPO
                    ----------------------------------------- */
 
                 const menuGroup =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
+
 
                 menuGroup.classList.add(
                     "menu-group"
@@ -339,39 +468,58 @@ async function carregarMenu() {
                    ----------------------------------------- */
 
                 const button =
-                    document.createElement("button");
+                    document.createElement(
+                        "button"
+                    );
 
-                button.type = "button";
+
+                button.type =
+                    "button";
+
 
                 button.classList.add(
                     "menu-group-button"
                 );
 
 
-                /* Ícone */
+                /* -----------------------------------------
+                   ÍCONE DO PROCESSO
+                   ----------------------------------------- */
 
                 const icon =
-                    document.createElement("span");
+                    document.createElement(
+                        "span"
+                    );
+
 
                 icon.classList.add(
                     "material-symbols-rounded",
                     "icone-processo"
                 );
 
+
                 icon.textContent =
                     processo.icone;
 
 
-                /* Texto */
+                /* -----------------------------------------
+                   TEXTO DO PROCESSO
+                   ----------------------------------------- */
 
                 const textoProcesso =
-                    document.createElement("span");
+                    document.createElement(
+                        "span"
+                    );
+
 
                 textoProcesso.textContent =
                     processo.titulo;
 
 
-                button.appendChild(icon);
+                button.appendChild(
+                    icon
+                );
+
 
                 button.appendChild(
                     textoProcesso
@@ -383,7 +531,10 @@ async function carregarMenu() {
                    ----------------------------------------- */
 
                 const submenu =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
+
 
                 submenu.classList.add(
                     "submenu"
@@ -397,8 +548,11 @@ async function carregarMenu() {
                 processo.documentacoes.forEach(
                     (documentacao) => {
 
+
                         const documentacaoElement =
-                            document.createElement("div");
+                            document.createElement(
+                                "div"
+                            );
 
 
                         documentacaoElement.classList.add(
@@ -407,12 +561,20 @@ async function carregarMenu() {
 
 
                         /*
-                         * Guarda o caminho no próprio
-                         * elemento.
+                         * Guarda o caminho da
+                         * documentação no elemento.
                          */
 
                         documentacaoElement.dataset.caminho =
                             documentacao.caminho;
+
+
+                        /*
+                         * Guarda também o ID.
+                         */
+
+                        documentacaoElement.dataset.id =
+                            documentacao.id;
 
 
                         /* -------------------------------------
@@ -420,12 +582,16 @@ async function carregarMenu() {
                            ------------------------------------- */
 
                         const iconDoc =
-                            document.createElement("span");
+                            document.createElement(
+                                "span"
+                            );
+
 
                         iconDoc.classList.add(
                             "material-symbols-rounded",
                             "icone-documentacao"
                         );
+
 
                         iconDoc.textContent =
                             documentacao.icone;
@@ -436,36 +602,42 @@ async function carregarMenu() {
                            ------------------------------------- */
 
                         const textoDocumentacao =
-                            document.createElement("span");
+                            document.createElement(
+                                "span"
+                            );
+
 
                         textoDocumentacao.classList.add(
                             "documentacao-link"
                         );
 
+
                         textoDocumentacao.textContent =
                             documentacao.titulo;
 
 
-                        /*
-                         * IMPORTANTE:
-                         *
-                         * NÃO usamos <a>.
-                         *
-                         * O texto é um <span>.
-                         */
+                        /* -------------------------------------
+                           MONTAR DOCUMENTAÇÃO
+                           ------------------------------------- */
 
                         documentacaoElement.appendChild(
                             iconDoc
                         );
+
 
                         documentacaoElement.appendChild(
                             textoDocumentacao
                         );
 
 
+                        /* -------------------------------------
+                           ADICIONAR AO SUBMENU
+                           ------------------------------------- */
+
                         submenu.appendChild(
                             documentacaoElement
                         );
+
                     }
                 );
 
@@ -478,19 +650,26 @@ async function carregarMenu() {
                     button
                 );
 
+
                 menuGroup.appendChild(
                     submenu
                 );
 
 
+                /* -----------------------------------------
+                   ADICIONAR AO SIDEBAR
+                   ----------------------------------------- */
+
                 sidebarMenu.appendChild(
                     menuGroup
                 );
+
             }
         );
 
 
         return menu;
+
 
     } catch (error) {
 
@@ -501,9 +680,18 @@ async function carregarMenu() {
 
 
         return {
+
+            apresentacao: {
+                titulo: "Apresentação",
+                caminho: "contents/home.html"
+            },
+
             processos: []
+
         };
+
     }
+
 }
 
 
@@ -511,10 +699,14 @@ async function carregarMenu() {
    CARREGAR CONTEÚDO
    ========================================================= */
 
-async function carregarConteudo(caminho) {
+async function carregarConteudo(
+    caminho
+) {
 
     const content =
-        document.getElementById("content");
+        document.getElementById(
+            "content"
+        );
 
 
     if (!content) {
@@ -540,7 +732,9 @@ async function carregarConteudo(caminho) {
     try {
 
         const response =
-            await fetch(caminho);
+            await fetch(
+                caminho
+            );
 
 
         if (!response.ok) {
@@ -548,6 +742,7 @@ async function carregarConteudo(caminho) {
             throw new Error(
                 `Erro ${response.status} ao carregar ${caminho}`
             );
+
         }
 
 
@@ -556,17 +751,19 @@ async function carregarConteudo(caminho) {
 
 
         /* ---------------------------------------------
-           INSERIR DOCUMENTAÇÃO
+           INSERIR CONTEÚDO
            --------------------------------------------- */
 
-        content.innerHTML = html;
+        content.innerHTML =
+            html;
 
 
         /* ---------------------------------------------
            RESETAR SCROLL
            --------------------------------------------- */
 
-        content.scrollTop = 0;
+        content.scrollTop =
+            0;
 
 
         /* ---------------------------------------------
@@ -574,6 +771,7 @@ async function carregarConteudo(caminho) {
            --------------------------------------------- */
 
         configurarGifs();
+
 
     } catch (error) {
 
@@ -584,8 +782,12 @@ async function carregarConteudo(caminho) {
 
 
         content.innerHTML = `
+
             <div class="doc-page">
-                <h1>Erro ao carregar conteúdo</h1>
+
+                <h1>
+                    Erro ao carregar conteúdo
+                </h1>
 
                 <p>
                     Não foi possível carregar a documentação.
@@ -595,9 +797,13 @@ async function carregarConteudo(caminho) {
                     <strong>Arquivo:</strong>
                     ${caminho}
                 </p>
+
             </div>
+
         `;
+
     }
+
 }
 
 
@@ -608,32 +814,49 @@ async function carregarConteudo(caminho) {
 function resetarDocumentacoes() {
 
     document
-        .querySelectorAll(".documentacoes")
-        .forEach((item) => {
+        .querySelectorAll(
+            ".documentacoes"
+        )
+        .forEach(
+            (item) => {
 
-            item.classList.remove("active");
 
-
-            const icon =
-                item.querySelector(
-                    ".icone-documentacao"
+                item.classList.remove(
+                    "active"
                 );
 
 
-            if (icon) {
+                const icon =
+                    item.querySelector(
+                        ".icone-documentacao"
+                    );
 
-                icon.textContent =
-                    "description";
+
+                if (icon) {
+
+                    icon.textContent =
+                        "description";
+
+                }
+
             }
-        });
+        );
 
 
     document
-        .querySelectorAll(".menu-item-button")
-        .forEach((item) => {
+        .querySelectorAll(
+            ".menu-item-button"
+        )
+        .forEach(
+            (item) => {
 
-            item.classList.remove("active");
-        });
+                item.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
 }
 
 
@@ -644,26 +867,34 @@ function resetarDocumentacoes() {
 function recolherMenus() {
 
     document
-        .querySelectorAll(".menu-group")
-        .forEach((menuGroup) => {
+        .querySelectorAll(
+            ".menu-group"
+        )
+        .forEach(
+            (menuGroup) => {
 
-            menuGroup.classList.remove(
-                "active"
-            );
 
-
-            const icon =
-                menuGroup.querySelector(
-                    ".icone-processo"
+                menuGroup.classList.remove(
+                    "active"
                 );
 
 
-            if (icon) {
+                const icon =
+                    menuGroup.querySelector(
+                        ".icone-processo"
+                    );
 
-                icon.textContent =
-                    "folder";
+
+                if (icon) {
+
+                    icon.textContent =
+                        "folder";
+
+                }
+
             }
-        });
+        );
+
 }
 
 
@@ -674,10 +905,13 @@ function recolherMenus() {
 function configurarGifs() {
 
     const content =
-        document.getElementById("content");
+        document.getElementById(
+            "content"
+        );
 
 
     if (!content) {
+
         return;
     }
 
@@ -689,6 +923,7 @@ function configurarGifs() {
 
 
     if (!gifs.length) {
+
         return;
     }
 
@@ -697,25 +932,42 @@ function configurarGifs() {
         new IntersectionObserver(
             (entries) => {
 
-                entries.forEach((entry) => {
+                entries.forEach(
+                    (entry) => {
 
-                    if (!entry.isIntersecting) {
-                        return;
+
+                        if (
+                            !entry.isIntersecting
+                        ) {
+
+                            return;
+                        }
+
+
+                        const gif =
+                            entry.target;
+
+
+                        const src =
+                            gif.src;
+
+
+                        /*
+                         * Reinicia o GIF
+                         * quando ele entra
+                         * na área visível.
+                         */
+
+                        gif.src =
+                            "";
+
+
+                        gif.src =
+                            src;
+
                     }
+                );
 
-
-                    const gif =
-                        entry.target;
-
-
-                    const src =
-                        gif.src;
-
-
-                    gif.src = "";
-
-                    gif.src = src;
-                });
             },
             {
                 root: content,
@@ -724,11 +976,18 @@ function configurarGifs() {
         );
 
 
-    gifs.forEach((gif) => {
+    gifs.forEach(
+        (gif) => {
 
-        observer.observe(gif);
-    });
+            observer.observe(
+                gif
+            );
+
+        }
+    );
+
 }
+
 
 /* =========================================================
    MENU MOBILE
@@ -737,27 +996,43 @@ function configurarGifs() {
 function alternarMenuMobile() {
 
     const sidebar =
-        document.getElementById("sidebar");
+        document.getElementById(
+            "sidebar"
+        );
+
 
     const button =
-        document.getElementById("mobile-menu-button");
+        document.getElementById(
+            "mobile-menu-button"
+        );
 
-    if (!sidebar || !button) {
+
+    if (
+        !sidebar ||
+        !button
+    ) {
+
         return;
     }
 
+
     const aberto =
-        sidebar.classList.toggle("mobile-open");
+        sidebar.classList.toggle(
+            "mobile-open"
+        );
+
 
     button.setAttribute(
         "aria-expanded",
         aberto
     );
 
+
     const icon =
         button.querySelector(
             ".material-symbols-rounded"
         );
+
 
     if (icon) {
 
@@ -765,5 +1040,61 @@ function alternarMenuMobile() {
             aberto
                 ? "close"
                 : "menu";
+
     }
+
+}
+
+
+/* =========================================================
+   FECHAR MENU MOBILE
+   ========================================================= */
+
+function fecharMenuMobile() {
+
+    const sidebar =
+        document.getElementById(
+            "sidebar"
+        );
+
+
+    const button =
+        document.getElementById(
+            "mobile-menu-button"
+        );
+
+
+    if (
+        !sidebar ||
+        !button
+    ) {
+
+        return;
+    }
+
+
+    sidebar.classList.remove(
+        "mobile-open"
+    );
+
+
+    button.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+
+    const icon =
+        button.querySelector(
+            ".material-symbols-rounded"
+        );
+
+
+    if (icon) {
+
+        icon.textContent =
+            "menu";
+
+    }
+
 }
