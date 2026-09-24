@@ -2,6 +2,7 @@
     "apresentacao": {
         "titulo": "Apresentação",
         "icone": "auto_stories",
+        "rota": "/",
         "caminho": "contents/home.html"
     },
 
@@ -10,53 +11,69 @@
             "id": "processo-01",
             "titulo": "Projeto de Curso",
             "icone": "folder",
+
             "documentacoes": [
                 {
                     "id": "introducao",
                     "titulo": "Introdução",
                     "icone": "description",
+                    "rota": "/processos/projeto-de-curso/introducao",
                     "caminho": "contents/processos/projeto_de_curso/introducao.html"
                 },
+
                 {
                     "id": "subprocesso-01",
                     "titulo": "Consultar se o curso já existe no sistema",
                     "icone": "description",
+                    "rota": "/processos/projeto-de-curso/consultar-se-curso-ja-existe",
                     "caminho": "contents/processos/projeto_de_curso/consultar_se_curso_ja_existe.html"
                 },
+
                 {
                     "id": "subprocesso-02",
                     "titulo": "Cadastrar curso",
                     "icone": "description",
+                    "rota": "/processos/projeto-de-curso/cadastrar-curso",
                     "caminho": "contents/processos/projeto_de_curso/cadastrar_curso.html"
                 },
+
                 {
                     "id": "subprocesso-03",
                     "titulo": "Cadastrar matriz curricular",
                     "icone": "description",
+                    "rota": "/processos/projeto-de-curso/cadastrar-matriz-curricular",
                     "caminho": "contents/processos/projeto_de_curso/cadastrar_matriz_curricular.html"
                 },
+
                 {
                     "id": "subprocesso-04",
                     "titulo": "Criar módulos e vincular disciplinas na matriz",
                     "icone": "description",
+                    "rota": "/processos/projeto-de-curso/criar-modulos-e-vincular-disciplinas",
                     "caminho": "contents/processos/projeto_de_curso/criar_modulos_da_matriz.html"
                 },
+
                 {
                     "id": "subprocesso-05",
                     "titulo": "Submeter matriz curricular para aprovação",
                     "icone": "description",
+                    "rota": "/processos/projeto-de-curso/submeter-matriz-curricular-para-aprovacao",
                     "caminho": "contents/processos/projeto_de_curso/submeter_matriz_curricular_para_aprovacao.html"
                 },
+
                 {
                     "id": "subprocesso-06",
                     "titulo": "Analisar projeto de curso (GEEP)",
                     "icone": "description",
+                    "rota": "/processos/projeto-de-curso/analisar-projeto-de-curso",
                     "caminho": "contents/processos/projeto_de_curso/analisar_projeto_de_curso.html"
                 },
+
                 {
                     "id": "subprocesso-07",
                     "titulo": "Aplicar matriz curricular (GEEP)",
                     "icone": "description",
+                    "rota": "/processos/projeto-de-curso/aplicar-matriz-curricular",
                     "caminho": "contents/processos/projeto_de_curso/aplicar_matriz_curricular.html"
                 }
             ]
@@ -66,35 +83,45 @@
             "id": "processo-02",
             "titulo": "Oferta de Turmas",
             "icone": "folder",
+
             "documentacoes": [
                 {
                     "id": "subprocesso-01",
                     "titulo": "Cadastrar período letivo",
                     "icone": "description",
+                    "rota": "/processos/oferta-de-turmas/cadastrar-periodo-letivo",
                     "caminho": "contents/processos/oferta_de_turmas/cadastrar_periodo_letivo.html"
                 },
+
                 {
                     "id": "subprocesso-02",
                     "titulo": "Parametrizar curso no período letivo",
                     "icone": "description",
+                    "rota": "/processos/oferta-de-turmas/parametrizar-curso-no-periodo-letivo",
                     "caminho": "contents/processos/oferta_de_turmas/parametrizar_curso_no_periodo_letivo.html"
                 },
+
                 {
                     "id": "subprocesso-03",
                     "titulo": "Cadastrar turma",
                     "icone": "description",
+                    "rota": "/processos/oferta-de-turmas/cadastrar-turma",
                     "caminho": "contents/processos/oferta_de_turmas/cadastrar_turma.html"
                 },
+
                 {
                     "id": "subprocesso-04",
                     "titulo": "Cadastrar turma/disciplina",
                     "icone": "description",
+                    "rota": "/processos/oferta-de-turmas/cadastrar-turma-disciplina",
                     "caminho": "contents/processos/oferta_de_turmas/cadastrar_turma_disciplina.html"
                 },
+
                 {
                     "id": "subprocesso-05",
                     "titulo": "[...]",
                     "icone": "description",
+                    "rota": "/processos/oferta-de-turmas/outro-processo",
                     "caminho": "contents/processos/oferta_de_turmas/outro_processo.html"
                 }
             ]
