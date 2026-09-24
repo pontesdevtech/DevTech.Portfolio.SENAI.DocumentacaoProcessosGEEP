@@ -49,7 +49,13 @@
                 },
                 {
                     "id": "subprocesso-06",
-                    "titulo": "Aplicar matriz curricular",
+                    "titulo": "Analisar projeto de curso (GEEP)",
+                    "icone": "description",
+                    "caminho": "contents/processos/projeto_de_curso/analisar_projeto_de_curso.html"
+                },
+                {
+                    "id": "subprocesso-07",
+                    "titulo": "Aplicar matriz curricular (GEEP)",
                     "icone": "description",
                     "caminho": "contents/processos/projeto_de_curso/aplicar_matriz_curricular.html"
                 }

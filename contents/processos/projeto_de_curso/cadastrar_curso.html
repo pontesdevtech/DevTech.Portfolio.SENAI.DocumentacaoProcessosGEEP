@@ -1,5 +1,612 @@
-<h1>Cadastrar curso</h1>
-<br>
-<p>
-    Teste: Cadastar curso no sistema
-</p>
+<main class="doc-page">
+
+    <!-- =================================================
+         CABEÇALHO DO DOCUMENTO
+         ================================================= -->
+
+    <header class="doc-header">
+
+        <h1>Criar Curso no SGE</h1>
+
+
+        <!-- =================================================
+             IDENTIFICAÇÃO DO DOCUMENTO
+             ================================================= -->
+
+        <div class="doc-metadata">
+
+            <div class="doc-metadata-item">
+
+                <span class="doc-metadata-key">
+                    PROCESSO
+                </span>
+
+                <strong class="doc-metadata-value">
+                    PROC.RE001
+                </strong>
+
+            </div>
+
+
+            <div class="doc-metadata-item">
+
+                <span class="doc-metadata-key">
+                    DOCUMENTAÇÃO
+                </span>
+
+                <strong class="doc-metadata-value">
+                    DOC.003A
+                </strong>
+
+            </div>
+
+
+            <div class="doc-metadata-item">
+
+                <span class="doc-metadata-key">
+                    VERSÃO
+                </span>
+
+                <strong class="doc-metadata-value">
+                    v1.0 (23/09/2026)
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            O cadastro de um novo curso no Sistema de Gestão Escolar (SGE)
+            deve ser realizado a partir da identificação da modalidade,
+            definição do código sequencial e preenchimento das informações
+            necessárias para caracterização do curso. Após o cadastro do
+            curso, deve ser criada sua respectiva habilitação, que permitirá
+            posteriormente o cadastro das matrizes curriculares.
+        </p>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         1. IDENTIFICAR A MODALIDADE E O PRÓXIMO CÓDIGO
+         ===================================================== -->
+
+    <section
+        class="doc-section"
+        id="identificar-modalidade"
+    >
+
+        <h2>
+            1. Identificar a modalidade e o próximo código
+        </h2>
+
+
+        <p>
+            O primeiro passo para cadastrar um curso é identificar a
+            modalidade à qual ele pertence e verificar a sequência de
+            códigos já utilizada no SGE. Para isso, na tela de cadastro de
+            cursos, utilize o filtro selecionando a modalidade correspondente ao curso que será criado.
+            Após aplicar o filtro, o sistema apresentará os cursos
+            pertencentes à modalidade selecionada. Em seguida, ordene os
+            registros pela coluna <strong>Código</strong> para identificar
+            o último código sequencial válido cadastrado e, a partir dele,
+            definir o próximo código que deverá ser utilizado para o novo
+            curso.
+        </p>
+
+
+        <figure class="doc-figure">
+
+            <img
+                src="assets/img/processos/projeto_de_curso/criar_curso/identificar_modalidade_e_proximo_codigo.gif"
+                alt="Demonstração do filtro por modalidade e identificação do próximo código sequencial no SGE"
+            >
+
+            <figcaption class="doc-caption">
+                Identificação do próximo código sequencial o curso.
+            </figcaption>
+
+        </figure>
+
+
+        <aside class="doc-note">
+
+            <strong>
+                Regra para definição do código
+            </strong>
+
+            <p>
+                O código do novo curso deve seguir a sequência dos códigos
+                já cadastrados para a modalidade correspondente. Utilize
+                como referência o último código sequencial válido encontrado
+                na listagem.
+            </p>
+
+        </aside>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         2. CADASTRAR CURSO
+         ===================================================== -->
+
+    <section
+        class="doc-section"
+        id="cadastrar-curso"
+    >
+
+        <h2>
+            2. Cadastrar curso
+        </h2>
+
+
+        <p>
+            Após identificar o próximo código disponível, clique no botão
+            <strong>Incluir</strong> para abrir a tela de cadastro. O SGE apresentará a tela
+            destinada ao cadastro das informações do novo curso. O
+            preenchimento envolve os dados de identificação, a configuração
+            da máscara de turma e os campos complementares necessários para
+            caracterizar a formação. Antes de salvar, todas as informações
+            devem ser revisadas para garantir que estejam de acordo com os
+            dados definidos para o curso.
+        </p>
+
+
+
+        <!-- =================================================
+             2.1. IDENTIFICAÇÃO DO CURSO
+             ================================================= -->
+
+        <div
+            class="doc-subsection"
+            id="identificacao-curso"
+        >
+
+            <h3>
+                2.1. Preencher a identificação
+            </h3>
+
+
+            <p>
+                Na aba <strong>Identificação</strong>, informe o código
+                correspondente ao próximo registro sequencial identificado
+                anteriormente e preencha o <strong>nome completo do
+                curso</strong>, sem utilizar abreviações. No campo
+                <strong>Nível/Categoria</strong>, informe modalidade do curso (aperfeiçoamento, qualificação, habilitação técnica, etc.) e, no campo
+                <strong>Modalidade</strong>, selecione o tipo de mediação
+                utilizado para a oferta, que pode ser
+                <strong>Presencial</strong> ou
+                <strong>À distância</strong>. Na sequência, selecione uma
+                das <strong>Áreas</strong> vigentes aceitas para o cadastro
+                dos cursos, observando sua compatibilidade com o
+                <strong>Eixo Tecnológico</strong> correspondente.
+            </p>
+
+
+            <figure class="doc-figure">
+
+                <img
+                    src="assets/img/processos/projeto_de_curso/criar_curso/cadastrar_identificacao_curso.gif"
+                    alt="Demonstração do preenchimento da identificação do curso no SGE"
+                >
+
+                <figcaption class="doc-caption">
+                    Preenchimento das informações de identificação do curso
+                    no SGE.
+                </figcaption>
+
+            </figure>
+
+
+            <aside class="doc-note">
+
+                <strong>
+                    Atenção
+                </strong>
+
+                <p>
+                    A modalidade (tipo de mediação) <strong>Semipresencial</strong> disponível no
+                    cadastro de cursos não deve ser utilizada. Essa opção foi criada para
+                    atender necessidades relacionadas ao ensino superior. Nesse sentido, os cursos semipresenciais devem ser
+                    classificados como <strong>À Distância</strong> nesse cadastro.
+                </p>
+
+            </aside>
+
+        </div>
+
+
+
+        <!-- =================================================
+             2.2. CONFIGURAR A MÁSCARA DE TURMA
+             ================================================= -->
+
+        <div
+            class="doc-subsection"
+            id="mascara-turma"
+        >
+
+            <h3>
+                2.2. Configurar a máscara de turma
+            </h3>
+
+
+            <p>
+                Na aba <strong>Máscara de Turma</strong>, no campo
+                <strong>Tipo de sequencial da máscara da turma</strong>,
+                selecione a opção <strong>Período letivo e curso</strong>.
+                Essa configuração fará com que o contador das turmas seja
+                reiniciada a cada período letivo, mantendo o sequencial em
+                uma faixa menor e reduzindo o risco de extrapolar o limite
+                de três dígitos numéricos disponível para o sequencial. No
+                campo <strong>Formato sequencial da máscara de turma</strong>,
+                selecione a opção <strong>Numérico</strong> e, em seguida,
+                informe a máscara da turma conforme o padrão definido para
+                o processo.
+            </p>
+
+
+            <figure class="doc-figure">
+
+                <img
+                    src="assets/img/processos/projeto_de_curso/criar_curso/configurar_mascara_turma.gif"
+                    alt="Demonstração da configuração da máscara de turma no SGE"
+                >
+
+                <figcaption class="doc-caption">
+                    Configuração do tipo de sequencial, formato e máscara
+                    da turma.
+                </figcaption>
+
+            </figure>
+
+
+            <aside class="doc-note">
+
+                <strong>
+                    Configuração da máscara
+                </strong>
+
+                <p>
+                    A máscara da turma deve seguir o padrão definido para
+                    o processo de cadastro: <strong>[ccccccc].###/&&&&&&</strong>.
+                </p>
+
+            </aside>
+
+        </div>
+
+
+
+        <!-- =================================================
+             2.3. PREENCHER CAMPOS COMPLEMENTARES
+             ================================================= -->
+
+        <div
+            class="doc-subsection"
+            id="campos-complementares"
+        >
+
+            <h3>
+                2.3. Preencher os campos complementares
+            </h3>
+
+
+            <p>
+                Nos campos complementares do curso, preencha a
+                <strong>Descrição do Curso</strong> com uma breve
+                apresentação do que o aluno irá aprender e desenvolver
+                durante a formação. Quando aplicável, informe a
+                <strong>CBO da Solução Integradora</strong> e, em seguida,
+                preencha a <strong>Competência Geral</strong>, também
+                denominada <strong>Perfil Profissional de Conclusão</strong>.
+                Por fim, informe o <strong>Objetivo Geral</strong> e os
+                <strong>Objetivos Específicos</strong>, garantindo que
+                essas informações estejam de acordo com a proposta e as
+                características da formação.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             2.4. SALVAR O CURSO
+             ================================================= -->
+
+        <div
+            class="doc-subsection"
+            id="salvar-curso"
+        >
+
+            <h3>
+                2.4. Salvar o curso
+            </h3>
+
+
+            <p>
+                Após concluir o preenchimento das informações necessárias,
+                revise os dados cadastrados e clique no botão
+                <strong>Salvar o curso</strong>. Com o curso salvo, será
+                necessário criar sua respectiva <strong>Habilitação</strong>,
+                que é o registro no qual serão armazenadas as matrizes
+                curriculares que forem criadas posteriormente para esse
+                curso.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         3. CADASTRAR HABILITAÇÃO
+         ===================================================== -->
+
+    <section
+        class="doc-section"
+        id="cadastrar-habilitacao"
+    >
+
+        <h2>
+            3. Cadastrar habilitação
+        </h2>
+
+
+        <p>
+            Após salvar o curso, será necessário criar sua respectiva
+            habilitação. A habilitação é o registro associado ao curso no
+            qual serão armazenadas as matrizes curriculares criadas para
+            sua formação. O cadastro deve utilizar as informações
+            correspondentes ao curso criado anteriormente, mantendo a
+            consistência entre os dois registros.
+        </p>
+
+
+
+        <!-- =================================================
+             3.1. DEFINIR O TIPO DA HABILITAÇÃO
+             ================================================= -->
+
+        <div
+            class="doc-subsection"
+            id="tipo-habilitacao"
+        >
+
+            <h3>
+                3.1. Definir o tipo da habilitação
+            </h3>
+
+
+            <p>
+                No campo <strong>Tipo</strong>, informe a classificação
+                correspondente ao curso, selecionando uma das opções
+                consideradas neste procedimento:
+                <strong>Formação Inicial (FIC)</strong>,
+                <strong>Formação Continuada (FIC)</strong> ou
+                <strong>Curso Técnico</strong>. As demais opções disponíveis
+                no campo devem ser desconsideradas.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             3.2. INFORMAR CÓDIGO E NOME
+             ================================================= -->
+
+        <div
+            class="doc-subsection"
+            id="codigo-nome-habilitacao"
+        >
+
+            <h3>
+                3.2. Informar o código e o nome da habilitação
+            </h3>
+
+
+            <p>
+                No campo <strong>Código da Habilitação</strong>, informe
+                exatamente o mesmo código utilizado no cadastro do curso.
+                Para evitar divergências entre os registros, recomenda-se
+                copiar o conteúdo do campo <strong>Código do Curso</strong>
+                e colá-lo no campo <strong>Código da Habilitação</strong>.
+                O mesmo procedimento deve ser realizado para o nome: copie
+                o conteúdo do campo <strong>Nome do Curso</strong> e cole-o
+                no campo <strong>Nome da Habilitação</strong>. Dessa forma,
+                tanto o código quanto o nome da habilitação permanecerão
+                exatamente iguais aos dados registrados no curso.
+            </p>
+
+
+            <figure class="doc-figure">
+
+                <img
+                    src="assets/img/processos/projeto_de_curso/criar_curso/cadastrar_habilitacao.gif"
+                    alt="Demonstração do cadastro da habilitação no SGE"
+                >
+
+                <figcaption class="doc-caption">
+                    Cadastro da habilitação utilizando o código e o nome
+                    definidos para o curso.
+                </figcaption>
+
+            </figure>
+
+
+            <aside class="doc-note">
+
+                <strong>
+                    Regra para código e nome
+                </strong>
+
+                <p>
+                    O <strong>código da habilitação</strong> deve ser
+                    exatamente igual ao <strong>código do curso</strong>,
+                    assim como o <strong>nome da habilitação</strong> deve
+                    ser exatamente igual ao <strong>nome do curso</strong>.
+                </p>
+
+            </aside>
+
+        </div>
+
+
+
+        <!-- =================================================
+             3.3. DESCONSIDERAR DEMAIS CAMPOS
+             ================================================= -->
+
+        <div
+            class="doc-subsection"
+            id="demais-campos-habilitacao"
+        >
+
+            <h3>
+                3.3. Desconsiderar os demais campos
+            </h3>
+
+
+            <p>
+                Os demais campos disponíveis na tela de cadastro da
+                habilitação devem ser desconsiderados neste procedimento.
+                O preenchimento deve se limitar às informações necessárias
+                para caracterizar a habilitação e manter sua correspondência
+                com o curso cadastrado anteriormente.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         4. PRÓXIMA ETAPA
+         ===================================================== -->
+
+    <section
+        class="doc-section"
+        id="proxima-etapa"
+    >
+
+        <h2>
+            4. Próxima etapa
+        </h2>
+
+
+        <p>
+            Com o curso e sua respectiva habilitação cadastrados, a escola
+            estará apta a criar a <strong>Matriz Curricular</strong>. A
+            matriz deverá ser elaborada de acordo com as orientações
+            estabelecidas para o projeto de curso e, após sua criação,
+            deverá ser submetida para aprovação, dando
+            continuidade ao fluxo do processo de <strong>Projeto de Curso</strong>.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         5. RESUMO DO PROCESSO
+         ===================================================== -->
+
+    <section
+        class="doc-section"
+        id="resumo"
+    >
+
+        <h2>
+            5. Resumo do processo
+        </h2>
+
+
+        <p>
+            O cadastro inicia-se pela identificação da modalidade e pela
+            definição do próximo código sequencial, obtido a partir da
+            consulta aos cursos já cadastrados para a modalidade
+            correspondente. Em seguida, são preenchidas as informações de
+            identificação do curso, configurada a máscara de turma e
+            informados os campos complementares necessários para sua
+            caracterização. Após a revisão das informações, o curso deve
+            ser salvo no SGE.
+        </p>
+
+
+        <p>
+            Com o curso cadastrado, deve ser criada a respectiva
+            habilitação, utilizando exatamente o mesmo código e nome do
+            curso. Concluídas essas etapas, a escola poderá prosseguir para
+            a criação da matriz curricular, que posteriormente deverá ser
+            submetida para aprovação, dando continuidade ao processo de
+            Projeto de Curso.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HISTÓRICO DE VERSÕES
+         ===================================================== -->
+
+    <section
+        class="doc-section doc-version-history"
+        id="historico-versoes"
+    >
+
+        <h2>
+            Histórico de versões
+        </h2>
+
+
+        <div class="doc-version-table">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Versão</th>
+                        <th>Data</th>
+                        <th>Descrição da alteração</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            1.0
+                        </td>
+
+                        <td>
+                            23/09/2026
+                        </td>
+
+                        <td>
+                            Criação da documentação para cadastro de curso
+                            no SGE.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
