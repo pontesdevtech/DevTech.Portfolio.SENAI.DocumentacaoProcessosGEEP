@@ -17,7 +17,7 @@ const APP_SHELL = [
   "./assets/js/app.js",
 
   // PWA
-  "./manifest.webmanifest",
+  "./manifest.json",
 
   // Ícones
   "./assets/icons/icone_192.png",
