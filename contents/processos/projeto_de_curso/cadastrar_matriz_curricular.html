@@ -1,5 +1,883 @@
-<h1>Cadastar matriz curricular</h1>
-<br>
-<p>
-    Teste: Cadastrar matriz curricular no sistema
-</p>
+<main class="doc-page">
+
+    <!-- =================================================
+         CABEÇALHO DO DOCUMENTO
+         ================================================= -->
+    <header class="doc-header">
+
+        <h1>Cadastrar matriz curricular no SGE</h1>
+
+        <!-- =================================================
+             IDENTIFICAÇÃO DO DOCUMENTO
+             ================================================= -->
+        <div class="doc-metadata">
+
+            <div class="doc-metadata-item">
+                <span class="doc-metadata-key">PROCESSO</span>
+                <strong class="doc-metadata-value">PROC.RE001</strong>
+            </div>
+
+            <div class="doc-metadata-item">
+                <span class="doc-metadata-key">DOCUMENTAÇÃO</span>
+                <strong class="doc-metadata-value">DOC.004A</strong>
+            </div>
+
+            <div class="doc-metadata-item">
+                <span class="doc-metadata-key">VERSÃO</span>
+                <strong class="doc-metadata-value">v1.0 (02/10/2026)</strong>
+            </div>
+
+        </div>
+
+        <p>
+            O procedimento abaixo orienta o cadastro de uma nova matriz curricular no Sistema de Gestão
+            Escolar (SGE), desde o acesso à habilitação do curso até o preenchimento
+            dos dados da matriz, campos complementares e dados de integração VTEX
+            (este último para matrizes que serão ofertadas na loja Futuro.Digital).
+        </p>
+
+    </header>
+
+
+    <!-- =====================================================
+         1. ACESSO À MATRIZ CURRICULAR
+         ===================================================== -->
+    <section class="doc-section" id="acesso">
+
+        <h2>1. Acesso à matriz curricular</h2>
+
+        <p>
+            O acesso à matriz curricular é realizado por uma sequência de telas relacionadas
+            entre si. Cada etapa conduz à próxima até chegar ao anexo de matrizes curriculares
+            da habilitação.
+        </p>
+
+        <div class="doc-process-flow">
+
+            <p>
+                <strong>1.1.</strong>
+                Acesse o módulo <strong>Educacional</strong> do SGE e clique no botão
+                <strong>Cursos</strong>.
+            </p>
+
+            <p>
+                <strong>1.2.</strong>
+                Selecione o curso ao qual será incluída a matriz curricular.
+            </p>
+
+            <p>
+                <strong>1.3.</strong>
+                Acesse <strong>Anexos &gt; Habilitações</strong> e abra a habilitação correspondente.
+            </p>
+
+            <p>
+                <strong>1.4.</strong>
+                Dentro da tela da habilitação, acesse
+                <strong>Anexos &gt; Matriz curricular</strong>.
+                A aba de matriz curricular será aberta dentro da própria tela da habilitação.
+            </p>
+
+            <p>
+                <strong>1.5.</strong>
+                Na aba de matriz curricular, utilize o botão
+                <strong>Incluir</strong> localizado na parte inferior da tela.
+            </p>
+
+        </div>
+
+        <aside class="doc-note">
+
+            <strong>Atenção</strong>
+
+            <p>
+                Existem dois botões <strong>Incluir</strong> na tela de habilitação.
+                O botão localizado na parte superior é utilizado para incluir uma
+                <strong>nova habilitação</strong>. Para cadastrar uma nova matriz curricular,
+                utilize o botão <strong>Incluir</strong> localizado na parte inferior,
+                dentro da área de matrizes curriculares.
+            </p>
+
+        </aside>
+
+    </section>
+
+
+    <!-- =====================================================
+         2. CADASTRO DA MATRIZ CURRICULAR
+         ===================================================== -->
+    <section class="doc-section" id="identificacao">
+
+        <h2>2. Cadastro da matriz curricular</h2>
+
+        <p>
+            Ao clicar em <strong>Incluir</strong>, o SGE abrirá a tela de criação da nova
+            matriz curricular. Alguns dados são preenchidos automaticamente pelo sistema.
+        </p>
+
+
+        <!-- =================================================
+             2.1. ABA DE IDENTIFICAÇÃO
+             ================================================= -->
+        <h3>2.1. Aba de identificação</h3>
+
+        <div class="doc-cards">
+
+            <article class="doc-card">
+
+                <h3>Dados preenchidos automaticamente</h3>
+
+                <p>
+                    Os campos <strong>Código do curso</strong>,
+                    <strong>Nome do curso</strong>,
+                    <strong>Código da habilitação</strong> e
+                    <strong>Nome da habilitação</strong>
+                    serão preenchidos automaticamente.
+                </p>
+
+            </article>
+
+            <article class="doc-card">
+
+                <h3>Dados a preencher</h3>
+
+                <p>
+                    Os demais campos devem ser preenchidos conforme as orientações
+                    apresentadas nas subseções a seguir.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <!-- =================================================
+             2.1.1. CÓDIGO DA MATRIZ CURRICULAR
+             ================================================= -->
+        <div class="doc-subsection">
+
+            <h3>a) Código da matriz curricular</h3>
+
+            <p>
+                O código da matriz curricular deve ser formado pelo
+                <strong>código do curso</strong>, seguido de um ponto e de um
+                <strong>sequencial de dois dígitos</strong>.
+            </p>
+
+            <p>
+                Para a primeira matriz curricular daquela habilitação, utilize o sequencial
+                <strong>01</strong>. Quando já existirem outras matrizes cadastradas, localize
+                a última matriz cadastrada e utilize o sequencial imediatamente posterior.
+            </p>
+
+            <aside class="doc-note">
+
+                <strong>Exemplo</strong>
+
+                <p>
+                    Se a última matriz curricular cadastrada na habilitação finaiza com o sequencial "<strong>05</strong>", 
+                    a nova matriz deverá utilizar o código do curso seguido de"<strong>.06</strong>". Exemplo: QUA.430.06
+                </p>
+
+            </aside>
+
+        </div>
+
+
+        <!-- =================================================
+             2.1.2. CRÉDITOS, CARGA HORÁRIA E DATA DE INÍCIO
+             ================================================= -->
+        <div class="doc-subsection">
+
+            <h3>b) Créditos, carga horária e data de início</h3>
+
+            <p>
+                O campo <strong>Total de créditos</strong> deve receber a quantidade de
+                disciplinas que a matriz curricular possuirá.
+            </p>
+
+            <p>
+                O campo <strong>Carga horária</strong> representa a carga horária total
+                da matriz curricular.
+            </p>
+
+            <p>
+                A <strong>Data de início</strong> deve corresponder à data em que a matriz
+                está sendo criada.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             2.1.3. CONTROLE DE VAGAS E REGIME
+             ================================================= -->
+        <div class="doc-subsection">
+
+            <h3>c) Controle de vagas e regime</h3>
+
+            <p>
+                No campo <strong>Controle de vagas</strong>, selecione sempre a opção
+                <strong>Controle de vagas por turma da disciplina</strong>.
+            </p>
+
+            <p>
+                O campo <strong>Regime</strong> pode permanecer com o padrão
+                <strong>Seriado</strong>.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             2.1.4. TIPO DE AVALIAÇÃO DAS ATIVIDADES CURRICULARES
+             ================================================= -->
+        <div class="doc-subsection">
+
+            <h3>d) Tipo de avaliação das atividades curriculares</h3>
+
+            <p>
+                O campo <strong>Tipo de avaliação das atividades curriculares</strong>
+                deve permanecer marcado como <strong>Carga horária</strong>.
+            </p>
+
+            <p>
+                Essa informação é facultativa nas modalidades diferentes de
+                <strong>Aprendizagem Industrial Básica</strong> e
+                <strong>Aprendizagem Industrial Técnica</strong>.
+            </p>
+
+            <p>
+                O campo está relacionado à atividade curricular utilizada para representar
+                a <strong>fase empresa</strong> dos contratos de aprendizagem.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             2.1.5. COMPOSIÇÃO DA CARGA HORÁRIA
+             ================================================= -->
+        <div class="doc-subsection">
+
+            <h3>e) Composição da carga horária</h3>
+
+            <p>
+                Os campos de composição da carga horária devem ser preenchidos de acordo
+                com a composição efetiva da matriz curricular.
+            </p>
+
+            <div class="doc-cards">
+
+                <article class="doc-card">
+
+                    <h3>Disciplinas obrigatórias</h3>
+
+                    <p>
+                        Informe a soma da carga horária de todas as disciplinas
+                        obrigatórias da matriz, descontadas as horas do Trabalho de 
+                        conclusão de curso (TCC) ou Projeto Final de Curso (PFC), 
+                        quando for o caso.
+                    </p>
+
+                </article>
+
+                <article class="doc-card">
+
+                    <h3>Disciplinas optativas eletivas</h3>
+
+                    <p>
+                        Sempre informe o valor <strong>0 (zero)</strong>.
+                    </p>
+
+                </article>
+
+                <article class="doc-card">
+
+                    <h3>Atividades complementares</h3>
+
+                    <p>
+                        Nas modalidades de <strong>Aprendizagem Industrial Básica</strong> ou
+                        <strong>Aprendizagem Industrial Técnica</strong>, informe a carga horária
+                        correspondente à <strong>fase empresa</strong>. Nas demais modalidades,
+                        sempre informe <strong>0 (zero)</strong>.
+                    </p>
+
+                </article>
+
+                <article class="doc-card">
+
+                    <h3>Estágio supervisionado</h3>
+
+                    <p>
+                        Preencha somente quando houver <strong>estágio curricular "obrigatório"</strong>
+                        nas modalidades de <strong>Habilitação Técnica</strong> ou
+                        <strong>Aprendizagem Industrial Técnica</strong>.
+                    </p>
+
+                </article>
+
+                <article class="doc-card">
+
+                    <h3>Trabalho de conclusão de curso</h3>
+
+                    <p>
+                        Preencha somente nos cursos de <strong>Habilitação Técnica</strong>
+                        e <strong>Aprendizagem Técnica</strong>, quando houver carga horária
+                        em unidade curricular do tipo <strong>TCC</strong> ou
+                        <strong>PFC</strong>.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <aside class="doc-note">
+
+                <strong>Regra da carga horária para TCC/PFC</strong>
+
+                <p>
+                    Quando houver uma unidade curricular do tipo TCC ou PFC,
+                    a respectiva carga horária deve ser <strong>descontada da carga horária de
+                    disciplinas obrigatórias</strong> e informada no campo específico de
+                    <strong>Trabalho de conclusão de curso</strong>.
+                </p>
+
+                <p>
+                    A soma da carga horária das <strong>disciplinas obrigatórias</strong> com a
+                    carga horária de <strong>TCC</strong>, quando aplicável, deve totalizar a
+                    carga horária da matriz. No caso de <strong>Aprendizagem Industrial Básica e Técnica</strong>,
+                    deve ser considerada também a carga horária do commponente curricular, 
+                    conforme a estrutura da matriz.
+                </p>
+
+            </aside>
+
+
+        </div>
+
+
+        <!-- =================================================
+             2.1.6. DISTRIBUIÇÃO DA CARGA HORÁRIA POR MODALIDADE
+             ================================================= -->
+        <div class="doc-subsection">
+
+            <h3>g) Distribuição da carga horária por modalidade</h3>
+
+            <p>
+                A distribuição da carga horária deve refletir a modalidade de oferta
+                da matriz curricular.
+            </p>
+
+            <div class="doc-cards">
+
+                <article class="doc-card">
+
+                    <h3>100% presencial</h3>
+
+                    <p>
+                        Informe a <strong>carga horária total da matriz</strong> no campo
+                        <strong>Carga horária presencial</strong>.
+                    </p>
+
+                </article>
+
+                <article class="doc-card">
+
+                    <h3>100% a distância</h3>
+
+                    <p>
+                        Informe a <strong>carga horária total da matriz</strong> no campo
+                        <strong>Carga horária a distância (EAD)</strong>.
+                    </p>
+
+                </article>
+
+                <article class="doc-card">
+
+                    <h3>Semipresencial</h3>
+
+                    <p>
+                        Informe a quantidade de horas presenciais no campo
+                        <strong>Carga horária presencial</strong> e a quantidade de horas
+                        a distância no campo
+                        <strong>Carga horária a distância (EAD)</strong>.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             2.2. CAMPOS COMPLEMENTARES
+             ================================================= -->
+        <div class="doc-subsection" id="campos-complementares">
+
+            <h3>2.2. Campos complementares da matriz curricular</h3>
+
+            <p>
+                Na aba de campos complementares, preencha as informações que caracterizam
+                o ingresso, o público-alvo, a composição do curso e os requisitos necessários.
+            </p>
+
+
+            <!-- =============================================
+                 2.2.1. FORMA DE INGRESSO
+                 ============================================= -->
+            <div class="doc-subsection">
+
+                <h3>a) Forma de ingresso</h3>
+
+                <p>
+                    Informe as formas pelas quais o aluno poderá ingressar em uma turma
+                    desse tipo de curso.
+                </p>
+
+            </div>
+
+
+            <!-- =============================================
+                 2.2.2. PÚBLICO-ALVO
+                 ============================================= -->
+            <div class="doc-subsection">
+
+                <h3>b) Público-alvo</h3>
+
+                <p>
+                    Informe quem é o público-alvo do curso.
+                </p>
+
+            </div>
+
+
+            <!-- =============================================
+                 2.2.3. CARGAS HORÁRIAS
+                 ============================================= -->
+            <div class="doc-subsection">
+
+                <h3>c) Cargas horárias</h3>
+
+                <p>
+                    Os campos <strong>Carga horária a distância</strong>,
+                    <strong>Carga horária presencial</strong> e
+                    <strong>Carga horária de estágio</strong> devem possuir as mesmas
+                    informações definidas para os respectivos campos da aba de identificação
+                    da matriz curricular.
+                </p>
+
+            </div>
+
+
+            <!-- =============================================
+                 2.2.4. CONTEÚDO DO CURSO
+                 ============================================= -->
+            <div class="doc-subsection">
+
+                <h3>d) Conteúdo do curso</h3>
+
+                <p>
+                    O campo <strong>Conteúdo do curso</strong> deve armazenar um resumo
+                    do conteúdo programático que será ministrado.
+                </p>
+
+                <p>
+                    Sempre que possível, apresente somente os <strong>tópicos que serão
+                    abordados</strong>, evitando detalhar excessivamente cada assunto ou
+                    subdivisão das disciplinas.
+                </p>
+
+                <aside class="doc-note">
+
+                    <strong>Importante para o certificado</strong>
+
+                    <p>
+                        O conteúdo desse campo é utilizado como fonte para o texto do
+                        <strong>conteúdo programático no verso dos certificados</strong>.
+                        Portanto, um texto muito extenso pode não caber no verso do certificado.
+                    </p>
+
+                </aside>
+
+            </div>
+
+
+            <!-- =============================================
+                 2.2.5. OBJETIVO DO CURSO
+                 ============================================= -->
+            <div class="doc-subsection">
+
+                <h3>e) Objetivo do curso</h3>
+
+                <p>
+                    Preencha o campo <strong>Objetivo do curso</strong> com a mesma informação
+                    registrada na tela do curso, utilizando o <strong>objetivo geral</strong>.
+                </p>
+
+            </div>
+
+
+            <!-- =============================================
+                 2.2.6. PRÉ-REQUISITOS E REQUISITOS DE INGRESSO
+                 ============================================= -->
+            <div class="doc-subsection">
+
+                <h3>f) Pré-requisitos e requisitos de ingresso</h3>
+
+                <p>
+                    Os campos <strong>Pré-requisitos</strong> e
+                    <strong>Requisitos de ingresso</strong> devem receber a mesma informação,
+                    contemplando:
+                </p>
+
+                <ul>
+
+                    <li>
+                        <strong>Idade mínima;</strong>
+                    </li>
+
+                    <li>
+                        <strong>Escolaridade mínima;</strong>
+                    </li>
+
+                    <li>
+                        <strong>Conhecimentos específicos.</strong>
+                    </li>
+
+                </ul>
+
+                <p>
+                    Logo abaixo, há também campos específicos para
+                    <strong>Idade mínima</strong>,
+                    <strong>Escolaridade mínima</strong> e
+                    <strong>Conhecimentos específicos</strong>.
+                    Esses três campos devem ser preenchidos com as mesmas informações utilizadas
+                    nos campos de pré-requisitos e requisitos de ingresso.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             2.3. DADOS DE INTEGRAÇÃO VTEX
+             ================================================= -->
+        <div class="doc-subsection" id="vetex">
+
+            <h3>2.3. Aba de dados da integração VTEX</h3>
+
+            <p>
+                A aba de dados de integração VTEX deve ser preenchida quando a matriz
+                curricular puder ser ofertada na loja de cursos do
+                <strong>futuro.digital</strong>.
+            </p>
+
+
+            <!-- =============================================
+                 2.3.1. DADOS NECESSÁRIOS PARA A OFERTA
+                 ============================================= -->
+            <div class="doc-subsection">
+
+                <h3>a) Dados necessários para a oferta</h3>
+
+                <p>
+                    Para que a matriz possa ser utilizada e ofertada no futuro.digital:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Marque a <strong>flag VTEX</strong>;
+                    </li>
+
+                    <li>
+                        Preencha o campo <strong>Descrição Google</strong> com uma informação
+                        direta e objetiva sobre o curso;
+                    </li>
+
+                    <li>
+                        Informe a <strong>URL da imagem</strong>, selecionando o link da imagem
+                        correspondente no banco de imagens.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- =============================================
+                 RESPONSABILIDADE PELO PREENCHIMENTO
+                 ============================================= -->
+            <aside class="doc-note">
+
+                <strong>Responsabilidade pelo preenchimento</strong>
+
+                <p>
+                    Conforme a orientação deste procedimento, o preenchimento dessa parte
+                    geralmente é realizado pelo <strong>DR</strong>, depois que o curso
+                    e a matriz curricular já estiverem aprovados.
+                </p>
+
+            </aside>
+
+        </div>
+
+
+        <!-- =================================================
+             2.4. FINALIZAÇÃO E SALVAMENTO
+             ================================================= -->
+        <div class="doc-subsection" id="salvamento">
+
+            <h3>2.4. Finalização e salvamento</h3>
+
+            <p>
+                Após finalizar o preenchimento dos <strong>campos obrigatórios</strong>
+                da matriz curricular, revise as informações cadastradas e clique no
+                botão <strong>Salvar</strong>.
+            </p>
+
+            <aside class="doc-note">
+
+                <strong>Antes de salvar</strong>
+
+                <p>
+                    Confirme principalmente o código sequencial da matriz, a carga horária
+                    total, a composição da carga horária, a distribuição entre presencial
+                    e EAD e a correspondência das informações entre as abas.
+                </p>
+
+            </aside>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         3. VISÃO GERAL DO FLUXO
+         ===================================================== -->
+    <section class="doc-section" id="fluxo-geral">
+
+        <h2>3. Visão geral do fluxo</h2>
+
+        <p>
+            O cadastro pode ser resumido na seguinte sequência:
+        </p>
+
+        <div class="doc-flow-table">
+
+            <div class="doc-flow-row">
+
+                <div class="doc-flow-key">
+                    <span>1.</span>
+                    <strong>Acessar o curso</strong>
+                </div>
+
+                <div class="doc-flow-value">
+                    Educacional &gt; Cursos &gt; selecionar o curso.
+                </div>
+
+            </div>
+
+            <div class="doc-flow-row">
+
+                <div class="doc-flow-key">
+                    <span>2.</span>
+                    <strong>Acessar o anexo Habilitação</strong>
+                </div>
+
+                <div class="doc-flow-value">
+                    Anexos &gt; Habilitações &gt; abrir a habilitação correspondente.
+                </div>
+
+            </div>
+
+            <div class="doc-flow-row">
+
+                <div class="doc-flow-key">
+                    <span>3.</span>
+                    <strong>Acessar o anexo Matriz</strong>
+                </div>
+
+                <div class="doc-flow-value">
+                    Anexos &gt; Matriz curricular.
+                </div>
+
+            </div>
+
+            <div class="doc-flow-row">
+
+                <div class="doc-flow-key">
+                    <span>4.</span>
+                    <strong>Incluir uma nova matriz</strong>
+                </div>
+
+                <div class="doc-flow-value">
+                    Utilizar o botão <strong>Incluir uma nova matriz</strong>
+                    da parte inferior da tela.
+                </div>
+
+            </div>
+
+            <div class="doc-flow-row">
+
+                <div class="doc-flow-key">
+                    <span>5.</span>
+                    <strong>Preencher aba de identificação</strong>
+                </div>
+
+                <div class="doc-flow-value">
+                    Preencher código, créditos, cargas horárias, data de início,
+                    controle de vagas, regime e demais informações da composição.
+                </div>
+
+            </div>
+
+            <div class="doc-flow-row">
+
+                <div class="doc-flow-key">
+                    <span>6.</span>
+                    <strong>Preencher campos complementares</strong>
+                </div>
+
+                <div class="doc-flow-value">
+                    Preencher ingresso, público-alvo, cargas horárias, conteúdo,
+                    objetivo e requisitos.
+                </div>
+
+            </div>
+
+            <div class="doc-flow-row">
+
+                <div class="doc-flow-key">
+                    <span>7.</span>
+                    <strong>Preencher dados da integração VTEX</strong>
+                </div>
+
+                <div class="doc-flow-value">
+                    Preencher quando a matriz for destinada à oferta no futuro.digital,
+                    observando a responsabilidade do DR após a aprovação.
+                </div>
+
+            </div>
+
+            <div class="doc-flow-row">
+
+                <div class="doc-flow-key">
+                    <span>8.</span>
+                    <strong>Salvar</strong>
+                </div>
+
+                <div class="doc-flow-value">
+                    Após o preenchimento dos campos obrigatórios, clique em
+                    <strong>Salvar</strong>.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         4. RESUMO DO PROCESSO
+         ===================================================== -->
+    <section class="doc-section" id="resumo">
+
+        <h2>4. Resumo do processo</h2>
+
+        <p>
+            Use esta etapa como uma conferência final dos principais critérios do cadastro,
+            sem repetir a sequência de acesso apresentada na visão geral do fluxo.
+        </p>
+
+        <ul>
+
+            <li>
+                <strong>Código da matriz:</strong>
+                confirme o código do curso, o ponto e o sequencial de dois dígitos,
+                respeitando a sequência das matrizes existentes.
+            </li>
+
+            <li>
+                <strong>Carga horária:</strong>
+                confira se a carga horária total e sua composição estão coerentes
+                com a matriz e com a modalidade do curso.
+            </li>
+
+            <li>
+                <strong>Correspondência entre abas:</strong>
+                confirme que as cargas horárias dos campos complementares correspondem
+                às informações da aba de identificação.
+            </li>
+
+            <li>
+                <strong>Conteúdo do curso:</strong>
+                mantenha o texto objetivo e resumido, considerando sua utilização
+                no verso dos certificados.
+            </li>
+
+            <li>
+                <strong>VTEX:</strong>
+                quando aplicável, confirme os dados necessários para a oferta da
+                matriz no futuro.digital.
+            </li>
+
+            <li>
+                <strong>Finalização:</strong>
+                revise os campos obrigatórios antes de salvar a matriz curricular.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- =====================================================
+         HISTÓRICO DE VERSÕES
+         ===================================================== -->
+    <section class="doc-section doc-version-history" id="historico-versoes">
+
+        <h2>Histórico de versões</h2>
+
+        <div class="doc-version-table">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Versão</th>
+                        <th>Data</th>
+                        <th>Descrição da alteração</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>1.0</td>
+
+                        <td>02/10/2026</td>
+
+                        <td>
+                            Criação da documentação do procedimento de cadastro de matriz
+                            curricular no SGE.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>

@@ -26,6 +26,7 @@
     font-size: var(--tamanho-texto-xl);
     font-weight: var(--peso-fonte-negrito);
     line-height: 1.3;
+    text-transform: uppercase;
 }
 
 
