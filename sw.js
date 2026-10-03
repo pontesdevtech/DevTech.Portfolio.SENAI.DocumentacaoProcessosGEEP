@@ -1,4 +1,4 @@
-const CACHE_NAME = "geep-documentacao-v1";
+const CACHE_NAME = "geep-documentacao-v1.0";
 
 const APP_SHELL = [
   "./",
@@ -20,8 +20,8 @@ const APP_SHELL = [
   "./manifest.json",
 
   // Ícones
-  "./assets/icons/icone_192.png",
-  "./assets/icons/icone_512.png"
+  "./assets/img/icons/icone_192.png",
+  "./assets/img/icons/icone_512.png"
 ];
 
 /**
