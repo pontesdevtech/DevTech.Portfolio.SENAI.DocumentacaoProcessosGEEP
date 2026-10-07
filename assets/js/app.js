@@ -1,61 +1,80 @@
-document.addEventListener("DOMContentLoaded", async () => {
+/* =========================================================
+   CONFIGURAÇÃO DA APLICAÇÃO
+   ========================================================= */
 
-    /* =====================================================
-       CARREGAR COMPONENTES
-       ===================================================== */
+/*
+ * Descobre automaticamente o caminho base da aplicação.
+ *
+ * No GitHub Pages:
+ *
+ * /DevTech.Portfolio.SENAI.DocumentacaoProcessosGEEP
+ *
+ * Localmente, normalmente será:
+ *
+ * ""
+ */
+const BASE_PATH =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+        ? ""
+        : "/DevTech.Portfolio.SENAI.DocumentacaoProcessosGEEP";
 
-    await carregarComponent(
-        "components/header.html",
-        "header"
-    );
-
-    await carregarComponent(
-        "components/sidebar.html",
-        "sidebar"
-    );
+/*
+ * Menu carregado do JSON.
+ *
+ * É mantido em escopo global para que os eventos
+ * de navegação possam utilizá-lo.
+ */
+let menuAtual = null;
 
 
-    /* =====================================================
-       CARREGAR MENU
-       ===================================================== */
+/* =========================================================
+   DOMContentLoaded
+   ========================================================= */
 
-    const menu = await carregarMenu();
+document.addEventListener(
+    "DOMContentLoaded",
+    async () => {
+
+        /* =================================================
+           CARREGAR COMPONENTES
+           ================================================= */
+
+        await carregarComponent(
+            "components/header.html",
+            "header"
+        );
+
+        await carregarComponent(
+            "components/sidebar.html",
+            "sidebar"
+        );
 
 
-    /* =====================================================
-       CARREGAR PÁGINA INICIAL
-       ===================================================== */
+        /* =================================================
+           CARREGAR MENU
+           ================================================= */
 
-    if (
-        menu.apresentacao &&
-        menu.apresentacao.caminho
-    ) {
+        const menu =
+            await carregarMenu();
 
-        await carregarConteudo(
-            menu.apresentacao.caminho
+
+        menuAtual =
+            menu;
+
+
+        /* =================================================
+           CARREGAR ROTA ATUAL
+           ================================================= */
+
+        await navegarPara(
+            obterRotaAtual(),
+            menu,
+            false
         );
 
     }
-
-
-    /* =====================================================
-       ATIVAR APRESENTAÇÃO
-       ===================================================== */
-
-    const apresentacao =
-        document.querySelector(
-            ".menu-item-button"
-        );
-
-    if (apresentacao) {
-
-        apresentacao.classList.add(
-            "active"
-        );
-
-    }
-
-});
+);
 
 
 /* =========================================================
@@ -98,34 +117,32 @@ document.addEventListener(
         if (documentacao) {
 
             /*
-             * Impede qualquer comportamento
-             * padrão de navegação.
+             * Impede o comportamento padrão.
              */
 
             event.preventDefault();
 
 
             /*
-             * Impede que o clique continue
-             * sendo processado por outros
-             * listeners.
+             * Impede que o evento continue
+             * sendo processado.
              */
 
             event.stopPropagation();
 
 
-            /* ---------------------------------------------
-               CAMINHO
-               --------------------------------------------- */
+            /*
+             * Obtém a rota armazenada no elemento.
+             */
 
-            const caminho =
-                documentacao.dataset.caminho;
+            const rota =
+                documentacao.dataset.rota;
 
 
-            if (!caminho) {
+            if (!rota) {
 
                 console.error(
-                    "Documentação sem caminho:",
+                    "Documentação sem rota:",
                     documentacao
                 );
 
@@ -133,54 +150,14 @@ document.addEventListener(
             }
 
 
-            /* ---------------------------------------------
-               RESETAR ESTADOS
-               --------------------------------------------- */
+            /*
+             * Realiza a navegação.
+             */
 
-            resetarDocumentacoes();
-
-
-            /* ---------------------------------------------
-               ATIVAR DOCUMENTAÇÃO
-               --------------------------------------------- */
-
-            documentacao.classList.add(
-                "active"
+            navegarPara(
+                rota,
+                menuAtual
             );
-
-
-            /* ---------------------------------------------
-               ALTERAR ÍCONE
-               --------------------------------------------- */
-
-            const icon =
-                documentacao.querySelector(
-                    ".icone-documentacao"
-                );
-
-
-            if (icon) {
-
-                icon.textContent =
-                    "visibility";
-
-            }
-
-
-            /* ---------------------------------------------
-               CARREGAR CONTEÚDO
-               --------------------------------------------- */
-
-            carregarConteudo(
-                caminho
-            );
-
-
-            /* ---------------------------------------------
-               FECHAR MENU MOBILE
-               --------------------------------------------- */
-
-            fecharMenuMobile();
 
 
             return;
@@ -202,38 +179,17 @@ document.addEventListener(
             event.preventDefault();
 
 
-            /* ---------------------------------------------
-               RESETAR ESTADOS
-               --------------------------------------------- */
+            if (
+                menuAtual &&
+                menuAtual.apresentacao
+            ) {
 
-            resetarDocumentacoes();
+                navegarPara(
+                    menuAtual.apresentacao.rota,
+                    menuAtual
+                );
 
-            recolherMenus();
-
-
-            /* ---------------------------------------------
-               ATIVAR APRESENTAÇÃO
-               --------------------------------------------- */
-
-            apresentacao.classList.add(
-                "active"
-            );
-
-
-            /* ---------------------------------------------
-               CARREGAR CONTEÚDO
-               --------------------------------------------- */
-
-            carregarConteudo(
-                "contents/home.html"
-            );
-
-
-            /* ---------------------------------------------
-               FECHAR MENU MOBILE
-               --------------------------------------------- */
-
-            fecharMenuMobile();
+            }
 
 
             return;
@@ -336,6 +292,698 @@ document.addEventListener(
 
 
 /* =========================================================
+   EVENTO DO HISTÓRICO DO NAVEGADOR
+   ========================================================= */
+
+/*
+ * Executado quando o usuário utiliza:
+ *
+ * - botão Voltar;
+ * - botão Avançar;
+ * - history.back();
+ * - history.forward().
+ */
+
+window.addEventListener(
+    "popstate",
+    () => {
+
+        if (!menuAtual) {
+
+            return;
+        }
+
+
+        navegarPara(
+            obterRotaAtual(),
+            menuAtual,
+            false
+        );
+
+    }
+);
+
+
+/* =========================================================
+   OBTER ROTA ATUAL
+   ========================================================= */
+
+function obterRotaAtual() {
+
+    /*
+     * Se existir uma rota no hash,
+     * utiliza ela.
+     *
+     * Exemplo:
+     *
+     * #/processos/projeto-de-curso/introducao
+     *
+     * vira:
+     *
+     * /processos/projeto-de-curso/introducao
+     */
+
+    if (window.location.hash) {
+
+        let rota =
+            window.location.hash.substring(1);
+
+        if (!rota.startsWith("/")) {
+            rota = "/" + rota;
+        }
+
+        return normalizarRota(rota);
+    }
+
+
+    /*
+     * Caso não exista hash,
+     * considera a rota tradicional.
+     */
+
+    let caminho =
+        window.location.pathname;
+
+
+    if (
+        BASE_PATH &&
+        caminho.startsWith(BASE_PATH)
+    ) {
+
+        caminho =
+            caminho.substring(
+                BASE_PATH.length
+            );
+    }
+
+
+    if (!caminho.startsWith("/")) {
+        caminho = "/" + caminho;
+    }
+
+
+    return normalizarRota(caminho);
+}
+
+
+
+/* =========================================================
+   NORMALIZAR ROTA
+   ========================================================= */
+
+function normalizarRota(
+    rota
+) {
+
+    if (!rota) {
+
+        return "/";
+
+    }
+
+
+    let resultado =
+        rota.trim();
+
+
+    /*
+     * Se alguém informar uma URL
+     * completa, extrai somente o pathname.
+     */
+
+    try {
+
+        if (
+            resultado.startsWith(
+                "http://"
+            ) ||
+            resultado.startsWith(
+                "https://"
+            )
+        ) {
+
+            resultado =
+                new URL(
+                    resultado
+                ).pathname;
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Erro ao normalizar rota:",
+            error
+        );
+
+    }
+
+
+    /*
+     * Remove o BASE_PATH caso a rota
+     * já venha com o caminho do projeto.
+     */
+
+    if (
+        BASE_PATH &&
+        resultado.startsWith(
+            BASE_PATH
+        )
+    ) {
+
+        resultado =
+            resultado.substring(
+                BASE_PATH.length
+            );
+
+    }
+
+
+    /*
+     * Garante "/".
+     */
+
+    if (
+        !resultado.startsWith("/")
+    ) {
+
+        resultado =
+            "/" + resultado;
+
+    }
+
+
+    /*
+     * Remove barras duplicadas.
+     */
+
+    resultado =
+        resultado.replace(
+            /\/+/g,
+            "/"
+        );
+
+
+    /*
+     * Remove "/" final,
+     * exceto na raiz.
+     */
+
+    if (
+        resultado.length > 1
+    ) {
+
+        resultado =
+            resultado.replace(
+                /\/$/,
+                ""
+            );
+
+    }
+
+
+    return resultado || "/";
+
+}
+
+
+/* =========================================================
+   LOCALIZAR PÁGINA PELA ROTA
+   ========================================================= */
+
+function localizarPaginaPorRota(
+    menu,
+    rota
+) {
+
+    if (!menu) {
+
+        return null;
+
+    }
+
+
+    const rotaNormalizada =
+        normalizarRota(
+            rota
+        );
+
+
+    /* =====================================================
+       APRESENTAÇÃO
+       ===================================================== */
+
+    if (
+        menu.apresentacao
+    ) {
+
+        const rotaApresentacao =
+            normalizarRota(
+                menu.apresentacao.rota || "/"
+            );
+
+
+        if (
+            rotaApresentacao ===
+            rotaNormalizada
+        ) {
+
+            return {
+                ...menu.apresentacao,
+                tipo: "apresentacao"
+            };
+
+        }
+
+    }
+
+
+    /* =====================================================
+       PROCESSOS
+       ===================================================== */
+
+    if (
+        Array.isArray(
+            menu.processos
+        )
+    ) {
+
+        for (
+            const processo of menu.processos
+        ) {
+
+            if (
+                !Array.isArray(
+                    processo.documentacoes
+                )
+            ) {
+
+                continue;
+
+            }
+
+
+            for (
+                const documentacao of processo.documentacoes
+            ) {
+
+                const rotaDocumentacao =
+                    normalizarRota(
+                        documentacao.rota
+                    );
+
+
+                if (
+                    rotaDocumentacao ===
+                    rotaNormalizada
+                ) {
+
+                    return {
+                        ...documentacao,
+                        tipo: "documentacao",
+                        processo: processo
+                    };
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   NAVEGAR PARA UMA ROTA
+   ========================================================= */
+
+async function navegarPara(
+    rota,
+    menu,
+    atualizarHistorico = true
+) {
+
+    if (!menu) {
+
+        console.error(
+            "Menu não carregado."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Normaliza a rota.
+     */
+
+    const rotaNormalizada =
+        normalizarRota(
+            rota
+        );
+
+
+    /*
+     * Localiza a página correspondente
+     * no menu.json.
+     */
+
+    const pagina =
+        localizarPaginaPorRota(
+            menu,
+            rotaNormalizada
+        );
+
+
+    /* =====================================================
+       ROTA NÃO ENCONTRADA
+       ===================================================== */
+
+    if (!pagina) {
+
+        console.warn(
+            "Rota não encontrada:",
+            rotaNormalizada
+        );
+
+
+        /*
+         * Se a rota não existir,
+         * utiliza a apresentação como fallback.
+         */
+
+        const paginaInicial =
+            localizarPaginaPorRota(
+                menu,
+                "/"
+            );
+
+
+        if (
+            paginaInicial
+        ) {
+
+            await navegarPara(
+                paginaInicial.rota || "/",
+                menu,
+                atualizarHistorico
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       ATUALIZAR HISTÓRICO
+       ===================================================== */
+
+    if (
+        atualizarHistorico
+    ) {
+
+        const url =
+            construirUrl(
+                pagina.rota
+            );
+
+
+        /*
+         * Evita adicionar uma entrada
+         * desnecessária ao histórico.
+         */
+
+        if (
+            window.location.pathname !==
+            url
+        ) {
+
+            window.history.pushState(
+                {
+                    rota: pagina.rota
+                },
+                "",
+                `#${pagina.rota}`
+            );
+
+
+        }
+
+    }
+
+
+    /* =====================================================
+       RESETAR ESTADOS
+       ===================================================== */
+
+    resetarDocumentacoes();
+
+
+    recolherMenus();
+
+
+    /* =====================================================
+       APRESENTAÇÃO
+       ===================================================== */
+
+    if (
+        pagina.tipo ===
+        "apresentacao"
+    ) {
+
+        const apresentacao =
+            document.querySelector(
+                ".menu-item-button"
+            );
+
+
+        if (apresentacao) {
+
+            apresentacao.classList.add(
+                "active"
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       DOCUMENTAÇÃO
+       ===================================================== */
+
+    if (
+        pagina.tipo ===
+        "documentacao"
+    ) {
+
+        const documentacaoElement =
+            document.querySelector(
+                `.documentacoes[data-rota="${CSS.escape(
+                    pagina.rota
+                )}"]`
+            );
+
+
+        if (
+            documentacaoElement
+        ) {
+
+            documentacaoElement.classList.add(
+                "active"
+            );
+
+
+            /*
+             * Alterar ícone da documentação.
+             */
+
+            const icon =
+                documentacaoElement.querySelector(
+                    ".icone-documentacao"
+                );
+
+
+            if (icon) {
+
+                icon.textContent =
+                    "visibility";
+
+            }
+
+
+            /*
+             * Abrir automaticamente
+             * o grupo do processo.
+             */
+
+            const menuGroup =
+                documentacaoElement.closest(
+                    ".menu-group"
+                );
+
+
+            if (menuGroup) {
+
+                menuGroup.classList.add(
+                    "active"
+                );
+
+
+                const processIcon =
+                    menuGroup.querySelector(
+                        ".icone-processo"
+                    );
+
+
+                if (processIcon) {
+
+                    processIcon.textContent =
+                        "folder_open";
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CARREGAR CONTEÚDO
+       ===================================================== */
+
+    await carregarConteudo(
+        pagina.caminho
+    );
+
+
+    /* =====================================================
+       FECHAR MENU MOBILE
+       ===================================================== */
+
+    fecharMenuMobile();
+
+}
+
+
+/* =========================================================
+   CONSTRUIR URL
+   ========================================================= */
+
+function construirUrl(
+    rota
+) {
+
+    const rotaNormalizada =
+        normalizarRota(
+            rota
+        );
+
+
+    /*
+     * Rota raiz.
+     */
+
+    if (
+        rotaNormalizada === "/"
+    ) {
+
+        return (
+            BASE_PATH
+                ? `${BASE_PATH}/`
+                : "/"
+        );
+
+    }
+
+
+    /*
+     * Demais rotas.
+     */
+
+    return (
+        BASE_PATH
+            ? `${BASE_PATH}${rotaNormalizada}`
+            : rotaNormalizada
+    );
+
+}
+
+
+/* =========================================================
+   CONSTRUIR CAMINHO DE ARQUIVO
+   ========================================================= */
+
+function construirCaminhoArquivo(
+    caminho
+) {
+
+    if (!caminho) {
+
+        return "";
+
+    }
+
+
+    /*
+     * Se já for uma URL absoluta,
+     * não modifica.
+     */
+
+    if (
+        caminho.startsWith("http://") ||
+        caminho.startsWith("https://") ||
+        caminho.startsWith("data:")
+    ) {
+
+        return caminho;
+
+    }
+
+
+    /*
+     * Remove ./ inicial.
+     */
+
+    let caminhoNormalizado =
+        caminho.replace(
+            /^\.\/+/,
+            ""
+        );
+
+
+    /*
+     * Remove / inicial.
+     */
+
+    caminhoNormalizado =
+        caminhoNormalizado.replace(
+            /^\/+/,
+            ""
+        );
+
+
+    /*
+     * Monta o caminho considerando
+     * a raiz do projeto no GitHub Pages.
+     */
+
+    return `${BASE_PATH}/${caminhoNormalizado}`;
+
+}
+
+
+/* =========================================================
    CARREGAR COMPONENTE
    ========================================================= */
 
@@ -346,16 +994,22 @@ async function carregarComponent(
 
     try {
 
+        const url =
+            construirCaminhoArquivo(
+                componente
+            );
+
+
         const response =
             await fetch(
-                componente
+                url
             );
 
 
         if (!response.ok) {
 
             throw new Error(
-                `Erro ${response.status} ao carregar ${componente}`
+                `Erro ${response.status} ao carregar ${url}`
             );
 
         }
@@ -378,6 +1032,7 @@ async function carregarComponent(
             );
 
             return;
+
         }
 
 
@@ -405,9 +1060,15 @@ async function carregarMenu() {
 
     try {
 
+        const url =
+            construirCaminhoArquivo(
+                "data/menu.json"
+            );
+
+
         const response =
             await fetch(
-                "data/menu.json"
+                url
             );
 
 
@@ -437,6 +1098,28 @@ async function carregarMenu() {
             );
 
             return menu;
+
+        }
+
+
+        /* =================================================
+           APRESENTAÇÃO
+           ================================================= */
+
+        const apresentacao =
+            document.querySelector(
+                ".menu-item-button"
+            );
+
+
+        if (
+            apresentacao &&
+            menu.apresentacao
+        ) {
+
+            apresentacao.dataset.rota =
+                menu.apresentacao.rota || "/";
+
         }
 
 
@@ -561,8 +1244,8 @@ async function carregarMenu() {
 
 
                         /*
-                         * Guarda o caminho da
-                         * documentação no elemento.
+                         * Guarda o caminho do
+                         * arquivo HTML.
                          */
 
                         documentacaoElement.dataset.caminho =
@@ -570,11 +1253,22 @@ async function carregarMenu() {
 
 
                         /*
-                         * Guarda também o ID.
+                         * Guarda o ID.
                          */
 
                         documentacaoElement.dataset.id =
                             documentacao.id;
+
+
+                        /*
+                         * Guarda a rota.
+                         *
+                         * Esta é a informação utilizada
+                         * pelo sistema de navegação.
+                         */
+
+                        documentacaoElement.dataset.rota =
+                            documentacao.rota;
 
 
                         /* -------------------------------------
@@ -682,8 +1376,14 @@ async function carregarMenu() {
         return {
 
             apresentacao: {
-                titulo: "Apresentação",
-                caminho: "contents/home.html"
+                titulo:
+                    "Apresentação",
+
+                rota:
+                    "/",
+
+                caminho:
+                    "contents/home.html"
             },
 
             processos: []
@@ -716,6 +1416,7 @@ async function carregarConteudo(
         );
 
         return;
+
     }
 
 
@@ -726,21 +1427,28 @@ async function carregarConteudo(
         );
 
         return;
+
     }
 
 
     try {
 
+        const url =
+            construirCaminhoArquivo(
+                caminho
+            );
+
+
         const response =
             await fetch(
-                caminho
+                url
             );
 
 
         if (!response.ok) {
 
             throw new Error(
-                `Erro ${response.status} ao carregar ${caminho}`
+                `Erro ${response.status} ao carregar ${url}`
             );
 
         }
@@ -764,6 +1472,17 @@ async function carregarConteudo(
 
         content.scrollTop =
             0;
+
+
+        /*
+         * Também garante que a janela
+         * volte ao topo.
+         */
+
+        window.scrollTo(
+            0,
+            0
+        );
 
 
         /* ---------------------------------------------
@@ -796,6 +1515,11 @@ async function carregarConteudo(
                 <p>
                     <strong>Arquivo:</strong>
                     ${caminho}
+                </p>
+
+                <p>
+                    <strong>Detalhes:</strong>
+                    ${error.message}
                 </p>
 
             </div>
@@ -913,6 +1637,7 @@ function configurarGifs() {
     if (!content) {
 
         return;
+
     }
 
 
@@ -925,6 +1650,7 @@ function configurarGifs() {
     if (!gifs.length) {
 
         return;
+
     }
 
 
@@ -941,6 +1667,7 @@ function configurarGifs() {
                         ) {
 
                             return;
+
                         }
 
 
@@ -970,8 +1697,12 @@ function configurarGifs() {
 
             },
             {
-                root: content,
-                threshold: 0.3
+                root:
+                    content,
+
+                threshold:
+                    0.3
+
             }
         );
 
@@ -1013,6 +1744,7 @@ function alternarMenuMobile() {
     ) {
 
         return;
+
     }
 
 
@@ -1070,6 +1802,7 @@ function fecharMenuMobile() {
     ) {
 
         return;
+
     }
 
 
