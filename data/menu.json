@@ -47,10 +47,10 @@
 
                 {
                     "id": "subprocesso-04",
-                    "titulo": "Criar módulos e vincular disciplinas na matriz",
+                    "titulo": "Cadastrar módulos e disciplinas na matriz",
                     "icone": "description",
-                    "rota": "/processos/projeto-de-curso/criar-modulos-e-vincular-disciplinas",
-                    "caminho": "contents/processos/projeto_de_curso/criar_modulos_da_matriz.html"
+                    "rota": "/processos/projeto-de-curso/cadastrar-modulos-e-disciplinas",
+                    "caminho": "contents/processos/projeto_de_curso/cadastrar_modulos_da_matriz.html"
                 },
 
                 {
