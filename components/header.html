@@ -1,10 +1,10 @@
 <div class="header-content">
 
     <!-- =================================================
-         LOGO
+         TÍTULO DA PÁGINA + MENU MOBILE
          ================================================= -->
 
-    <div class="header-brand">
+    <div class="header-page">
 
         <img
             src="https://static.wixstatic.com/media/cf72c4_fe76531440a44ec0a41ac61efacbc653~mv2.png/v1/fill/w_306,h_54,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/SENAI_com_assinatura_negativa.png"
@@ -12,33 +12,38 @@
             class="header-logo"
         >
 
-    </div>
-
-
-    <!-- =================================================
-         TÍTULO DA PÁGINA + MENU MOBILE
-         ================================================= -->
-
-    <div class="header-page">
-
-        <button
-            type="button"
-            class="mobile-menu-button"
-            id="mobile-menu-button"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-        >
-            <span class="material-symbols-rounded">
-                menu
-            </span>
-        </button>
-
-        <span
-            class="header-title"
-            id="header-title"
-        >
+        <span class="header-title" id="header-title">
             Documentação de Processos - GEEP
         </span>
+
+        <div class="header-actions">
+
+            <!-- Primeiro: compartilhar -->
+            <button
+                type="button"
+                class="mobile-share-button"
+                id="mobile-share-button"
+                aria-label="Compartilhar esta página"
+            >
+                <span class="material-symbols-rounded" aria-hidden="true">
+                    share
+                </span>
+            </button>
+
+            <!-- Segundo: menu -->
+            <button
+                type="button"
+                class="mobile-menu-button"
+                id="mobile-menu-button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                <span class="material-symbols-rounded" aria-hidden="true">
+                    menu
+                </span>
+            </button>
+
+        </div>
 
     </div>
 

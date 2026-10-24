@@ -105,6 +105,19 @@ document.addEventListener(
 
 
         /* =================================================
+        BOTÃO DE COMPARTILHAR PÁGINA
+        ================================================= */
+
+        const mobileShareButton =
+            event.target.closest("#mobile-share-button");
+
+        if (mobileShareButton) {
+            compartilharPagina();
+            return;
+        }
+
+
+        /* =================================================
            DOCUMENTAÇÃO
            ================================================= */
 
@@ -1830,4 +1843,46 @@ function fecharMenuMobile() {
 
     }
 
+}
+
+
+/* =========================================================
+   COMPARTILHAR PÁGINA
+   ========================================================= */
+
+async function compartilharPagina() {
+    const dadosCompartilhamento = {
+        title: document.title || "Documentação de Processos GEEP",
+        text: "Confira esta documentação de processos da GEEP.",
+        url: window.location.href
+    };
+
+    try {
+        if (navigator.share) {
+            await navigator.share(dadosCompartilhamento);
+            return;
+        }
+
+        if (navigator.clipboard?.writeText) {
+            await navigator.clipboard.writeText(
+                dadosCompartilhamento.url
+            );
+
+            alert("Link copiado para a área de transferência.");
+            return;
+        }
+
+        window.prompt(
+            "Copie o link desta página:",
+            dadosCompartilhamento.url
+        );
+    } catch (erro) {
+        if (erro.name === "AbortError") {
+            // O usuário cancelou o compartilhamento.
+            return;
+        }
+
+        console.error("Erro ao compartilhar a página:", erro);
+        alert("Não foi possível compartilhar a página.");
+    }
 }
