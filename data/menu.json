@@ -65,8 +65,8 @@
                     "id": "subprocesso-06",
                     "titulo": "Analisar projeto de curso (GEEP)",
                     "icone": "description",
-                    "rota": "/processos/projeto-de-curso/analisar-projeto-de-curso",
-                    "caminho": "contents/processos/projeto_de_curso/analisar_projeto_de_curso.html"
+                    "rota": "/processos/projeto-de-curso/analisar-projeto-de-curso-geep",
+                    "caminho": "contents/processos/projeto_de_curso/analisar_projeto_de_curso_geep.html"
                 },
 
                 {
