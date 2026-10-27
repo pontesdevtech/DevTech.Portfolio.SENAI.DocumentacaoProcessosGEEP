@@ -8,13 +8,103 @@
 
     "processos": [
         {
-            "id": "processo-01",
+            "id": "PROC.RE001",
+            "titulo": "Cadastros Básicos",
+            "icone": "folder",
+
+            "documentacoes": [
+                {
+                    "id": "DOC.001A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "titulo": "Introdução",
+                    "icone": "description",
+                    "rota": "/processos/cadastros-basicos/introducao",
+                    "caminho": "contents/processos/cadastros-basicos/introducao.html"
+                },
+
+                {
+                    "id": "DOC.002A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "titulo": "Cadastro de alunos",
+                    "icone": "description",
+                    "rota": "/processos/cadastros-basicos/cadastro-de-alunos",
+                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-alunos.html"
+                },
+
+                {
+                    "id": "DOC.002B",
+                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "titulo": "Anexos da tela do aluno",
+                    "icone": "description",
+                    "rota": "/processos/cadastros-basicos/anexos-da-tela-do-aluno",
+                    "caminho": "contents/processos/cadastros-basicos/anexos-da-tela-do-aluno.html"
+                },
+
+                {
+                    "id": "DOC.003A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "titulo": "Cadastro de docentes",
+                    "icone": "description",
+                    "rota": "/processos/cadastros-basicos/cadastro-de-docentes",
+                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-docentes.html"
+                },
+
+                {
+                    "id": "DOC.003B",
+                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "titulo": "Anexos da tela do docentes",
+                    "icone": "description",
+                    "rota": "/processos/cadastros-basicos/anexos-da-tela-do-docente",
+                    "caminho": "contents/processos/cadastros-basicos/anexos-da-tela-do-docente.html"
+                },
+
+                {
+                    "id": "DOC.004A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "titulo": "Cadastro de turnos",
+                    "icone": "description",
+                    "rota": "/processos/cadastros-basicos/cadastro-de-turnos",
+                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-turnos.html"
+                },
+
+                {
+                    "id": "DOC.005A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "titulo": "Cadastro de ambientes pedagógicos",
+                    "icone": "description",
+                    "rota": "/processos/cadastros-basicos/cadastro-de-ambientes-pedagogicos",
+                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-ambientes-pedagogicos.html"
+                },
+
+                {
+                    "id": "DOC.006A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "titulo": "Cadastro de justificativas de faltas",
+                    "icone": "description",
+                    "rota": "/processos/cadastros-basicos/cadastro-de-justificativas-de-faltas",
+                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-justificativas-de-faltas.html"
+                },
+
+                {
+                    "id": "DOC.007A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "titulo": "Cadastro de banners dos portais",
+                    "icone": "description",
+                    "rota": "/processos/cadastros-basicos/cadastro-de-banners-dos-portais",
+                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-banners-dos-portais.html"
+                }
+            ]
+        },
+
+        {
+            "id": "PROC.RE002",
             "titulo": "Projeto de Curso",
             "icone": "folder",
 
             "documentacoes": [
                 {
-                    "id": "introducao",
+                    "id": "DOC.001A",
+                    "versao": "v1.0 (17/09/2026)",
                     "titulo": "Introdução",
                     "icone": "description",
                     "rota": "/processos/projeto-de-curso/introducao",
@@ -22,7 +112,8 @@
                 },
 
                 {
-                    "id": "subprocesso-01",
+                    "id": "DOC.002A",
+                    "versao": "v1.0 (19/09/2026)",
                     "titulo": "Consultar se o curso já existe no sistema",
                     "icone": "description",
                     "rota": "/processos/projeto-de-curso/consultar-se-curso-ja-existe",
@@ -30,7 +121,8 @@
                 },
 
                 {
-                    "id": "subprocesso-02",
+                    "id": "DOC.003A",
+                    "versao": "v1.0 (23/09/2026)",
                     "titulo": "Cadastrar curso",
                     "icone": "description",
                     "rota": "/processos/projeto-de-curso/cadastrar-curso",
@@ -38,7 +130,8 @@
                 },
 
                 {
-                    "id": "subprocesso-03",
+                    "id": "DOC.004A",
+                    "versao": "v1.0 (02/10/2026)",
                     "titulo": "Cadastrar matriz curricular",
                     "icone": "description",
                     "rota": "/processos/projeto-de-curso/cadastrar-matriz-curricular",
@@ -46,7 +139,8 @@
                 },
 
                 {
-                    "id": "subprocesso-04",
+                    "id": "DOC.005A",
+                    "versao": "v1.0 (02/10/2026)",
                     "titulo": "Cadastrar módulos e disciplinas na matriz",
                     "icone": "description",
                     "rota": "/processos/projeto-de-curso/cadastrar-modulos-e-disciplinas",
@@ -54,7 +148,8 @@
                 },
 
                 {
-                    "id": "subprocesso-05",
+                    "id": "DOC.006A",
+                    "versao": "v1.0 (18/10/2026)",
                     "titulo": "Submeter matriz curricular para aprovação",
                     "icone": "description",
                     "rota": "/processos/projeto-de-curso/submeter-matriz-curricular-para-aprovacao",
@@ -62,7 +157,8 @@
                 },
 
                 {
-                    "id": "subprocesso-06",
+                    "id": "DOC.007A",
+                    "versao": "v1.0 (24/10/2026)",
                     "titulo": "Analisar projeto de curso (GEEP)",
                     "icone": "description",
                     "rota": "/processos/projeto-de-curso/analisar-projeto-de-curso-geep",
@@ -70,7 +166,8 @@
                 },
 
                 {
-                    "id": "subprocesso-07",
+                    "id": "DOC.008A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
                     "titulo": "Aplicar matriz curricular (GEEP)",
                     "icone": "description",
                     "rota": "/processos/projeto-de-curso/aplicar-matriz-curricular",
@@ -80,13 +177,23 @@
         },
 
         {
-            "id": "processo-02",
+            "id": "PROC.RE003",
             "titulo": "Oferta de Turmas",
             "icone": "folder",
 
             "documentacoes": [
                 {
-                    "id": "subprocesso-01",
+                    "id": "DOC.001A",
+                    "versao": "v1.0 (xx/xx/xxxx)",
+                    "titulo": "Introdução",
+                    "icone": "description",
+                    "rota": "/processos/oferta-de-turmas/introducao",
+                    "caminho": "contents/processos/oferta-de-turmas/introducao.html"
+                },
+
+                {
+                    "id": "DOC.002A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
                     "titulo": "Cadastrar período letivo",
                     "icone": "description",
                     "rota": "/processos/oferta-de-turmas/cadastrar-periodo-letivo",
@@ -94,7 +201,8 @@
                 },
 
                 {
-                    "id": "subprocesso-02",
+                    "id": "DOC.003A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
                     "titulo": "Parametrizar curso no período letivo",
                     "icone": "description",
                     "rota": "/processos/oferta-de-turmas/parametrizar-curso-no-periodo-letivo",
@@ -102,7 +210,8 @@
                 },
 
                 {
-                    "id": "subprocesso-03",
+                    "id": "DOC.004A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
                     "titulo": "Cadastrar turma",
                     "icone": "description",
                     "rota": "/processos/oferta-de-turmas/cadastrar-turma",
@@ -110,7 +219,8 @@
                 },
 
                 {
-                    "id": "subprocesso-04",
+                    "id": "DOC.005A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
                     "titulo": "Cadastrar turma/disciplina",
                     "icone": "description",
                     "rota": "/processos/oferta-de-turmas/cadastrar-turma-disciplina",
@@ -118,11 +228,38 @@
                 },
 
                 {
-                    "id": "subprocesso-05",
+                    "id": "DOC.006A",
+                    "versao": "v1.0 (XX/XX/XXXX)",
                     "titulo": "[...]",
                     "icone": "description",
                     "rota": "/processos/oferta-de-turmas/outro-processo",
                     "caminho": "contents/processos/oferta_de_turmas/outro_processo.html"
+                }
+            ]
+        },
+
+        {
+            "id": "PROC.RE004",
+            "titulo": "Processo Seletivo",
+            "icone": "folder",
+
+            "documentacoes": [
+                {
+                    "id": "DOC.001A",
+                    "versao": "v1.0 (xx/xx/xxxx)",
+                    "titulo": "Introdução",
+                    "icone": "description",
+                    "rota": "/processos/processo-seletivo/introducao",
+                    "caminho": "contents/processos/processo-seletivo/introducao.html"
+                },
+
+                {
+                    "id": "DOC.002A",
+                    "versao": "v1.0 (xx/xx/xxxx)",
+                    "titulo": "Cadastrar processo seletivo",
+                    "icone": "description",
+                    "rota": "/processos/processo-seletivo/cadastrar-processo-seletivo",
+                    "caminho": "contents/processos/processo-seletivo/cadastrar-processo-seletivo.html"
                 }
             ]
         }

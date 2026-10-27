@@ -881,6 +881,16 @@ async function navegarPara(
 
 
     /* =====================================================
+   PREENCHER METADADOS DA DOCUMENTAÇÃO
+   ===================================================== */
+
+    preencherMetadadosDocumentacao(
+        rotaNormalizada,
+        menu
+    );
+
+
+    /* =====================================================
        FECHAR MENU MOBILE
        ===================================================== */
 
@@ -1594,6 +1604,50 @@ function resetarDocumentacoes() {
             }
         );
 
+}
+
+
+/* =========================================================
+   PREENCHER IDENTIFICAÇÃO DA DOCUMENTAÇÃO
+   ========================================================= */
+
+function preencherMetadadosDocumentacao(rota, menu) {
+
+    const processoElemento =
+        document.getElementById("processo-id");
+
+    const documentacaoElemento =
+        document.getElementById("documentacao-id");
+
+    const versaoElemento =
+        document.getElementById("versao-id");
+
+    // Se a página não possuir esses campos, encerra.
+    if (!processoElemento || !documentacaoElemento || !versaoElemento) {
+        return;
+    }
+
+    // Localiza o processo e a documentação pela rota.
+    for (const processo of menu.processos) {
+
+        const documentacao = processo.documentacoes?.find(
+            item => item.rota === rota
+        );
+
+        if (documentacao) {
+
+            processoElemento.textContent = processo.id;
+            documentacaoElemento.textContent = documentacao.id;
+            versaoElemento.textContent = documentacao.versao;
+
+            return;
+        }
+    }
+
+    // Limpa os campos se a rota não corresponder a uma documentação.
+    processoElemento.textContent = "";
+    documentacaoElemento.textContent = "";
+    versaoElemento.textContent = "";
 }
 
 
