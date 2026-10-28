@@ -1,0 +1,431 @@
+<main class="doc-page">
+
+    <!-- =================================================
+         CABEÇALHO DO DOCUMENTO
+         ================================================= -->
+
+    <header class="doc-header">
+
+        <h1>Cadastro de alunos</h1>
+
+        <!-- Identificação preenchida automaticamente pelo app.js a partir do JSON -->
+        <div class="doc-metadata">
+            <div class="doc-metadata-item">
+                <span class="doc-metadata-key">PROCESSO</span>
+                <strong class="doc-metadata-value" id="processo-id"></strong>
+            </div>
+            <div class="doc-metadata-item">
+                <span class="doc-metadata-key">DOCUMENTAÇÃO</span>
+                <strong class="doc-metadata-value" id="documentacao-id"></strong>
+            </div>
+            <div class="doc-metadata-item">
+                <span class="doc-metadata-key">VERSÃO</span>
+                <strong class="doc-metadata-value" id="versao-id"></strong>
+            </div>
+        </div>
+
+        <p>
+            Este material orienta o cadastro básico de alunos no sistema SGE, desde o acesso à lista
+            de alunos até o preenchimento dos campos das abas de identificação, endereço, documentos,
+            responsáveis e campos complementares.
+        </p>
+
+    </header>
+
+    <!-- =====================================================
+         1. ACESSAR A LISTA DE ALUNOS
+         ===================================================== -->
+
+    <section class="doc-section" id="acessar-lista-alunos">
+
+        <h2>1. Acessar a lista de alunos</h2>
+
+        <p>
+            No SGE, acesse o módulo <strong>Educacional</strong>, abra a aba
+            <strong>Currículo e Oferta</strong> e clique em <strong>Alunos</strong>.
+        </p>
+
+        <figure class="doc-figure">
+            <img
+                src="contents/processos/cadastros_basicos/gifs/cadastro_alunos_acessar_lista.gif"
+                alt="Demonstração do acesso à lista de alunos pelo módulo Educacional, na aba Currículo e Oferta"
+                loading="lazy"
+            >
+            <figcaption class="doc-caption">
+                Acesso à tela de cadastro de alunos.
+            </figcaption>
+        </figure>
+
+        <p>
+            Na lista de alunos, selecione o filtro mais adequado à sua necessidade e informe
+            o valor a ser pesquisado. Ao executar a busca, serão exibidos os registros
+            correspondentes aos critérios informados.
+        </p>
+
+        <aside class="doc-note">
+            <strong>Atenção ao filtro Todos</strong>
+            <p>
+                Ao utilizar o filtro <strong>Todos</strong>, a quantidade de registros pode
+                ultrapassar o limite exibido pela tela. Nessa situação, o sistema apresenta
+                uma mensagem na parte inferior informando que o limite de registros foi
+                excedido. Parte dos registros pode deixar de ser considerada na busca,
+                prejudicando a localização de alguns cadastros. Para reduzir esse risco,
+                utilize outro filtro que limite melhor os resultados.
+            </p>
+        </aside>
+
+        <p>
+            Para iniciar um novo cadastro, clique no botão <strong>Incluir</strong>.
+        </p>
+
+    </section>
+
+    <!-- =====================================================
+         2. ABA IDENTIFICAÇÃO
+         ===================================================== -->
+
+    <section class="doc-section" id="identificacao">
+
+        <h2>2. Preencher a aba Identificação</h2>
+
+        <p>
+            Na tela de inclusão, os dados do aluno estão organizados nas abas
+            <strong>Identificação</strong>, <strong>Endereço</strong>,
+            <strong>Documentos</strong>, <strong>Responsáveis</strong> e
+            <strong>Campos complementares</strong>.
+        </p>
+
+        <h3>2.1. Dados básicos</h3>
+
+        <p>
+            Na sub-aba <strong>Dados básicos</strong>, preencha os seguintes campos:
+        </p>
+
+        <ul>
+            <li>Nome do aluno;</li>
+            <li>Estado natal;</li>
+            <li>Naturalidade;</li>
+            <li>Data de nascimento;</li>
+            <li>Sexo;</li>
+            <li>Estado civil;</li>
+            <li>E-mail;</li>
+            <li>Nacionalidade.</li>
+        </ul>
+
+        <aside class="doc-note">
+            <strong>E-mail válido</strong>
+            <p>
+                O e-mail é necessário para a integração com algumas funcionalidades do
+                sistema. Informe um endereço válido e confira se foi digitado corretamente.
+            </p>
+        </aside>
+
+        <p>
+            O campo de usuário será gerado automaticamente após o primeiro salvamento.
+            O código de usuário do aluno será o mesmo que o <strong>Registro Acadêmico (RA)</strong> . A senha
+            indicada para o primeiro acesso é <strong>Portal@senai2021</strong>. Essas 
+            credenciais são para acesso ao portal do aluno, onde o discente poderá 
+            acompanhar seu rendimento acadêmico nos cursos. Será solicitado ao aluno 
+            a criação de uma senha permanente logo que ele acessar o portal pela 
+            primeira vez. 
+        </p>
+
+        <h3>2.2. Informações adicionais</h3>
+
+        <p>
+            Na sub-aba <strong>Informações adicionais</strong>, preencha os campos
+            <strong>Cor/Raça</strong> e <strong>Grau de instrução</strong>.
+        </p>
+
+        <h3>2.3. Pessoas com necessidades educacionais especiais</h3>
+
+        <p>
+            Se o aluno relatar uma deficiência, selecione a opção correspondente entre as
+            flags disponíveis. Essas informações permitem que o aluno seja considerado nos
+            relatórios do Programa SENAI de Ações Inclusivas.
+        </p>
+
+        <aside class="doc-note">
+            <strong>Preenchimento baseado no relato da pessoa</strong>
+            <p>
+                Marque uma deficiência somente quando ela for relatada pela própria pessoa.
+                Não se deve presumir ou inferir uma deficiência apenas pela observação.
+            </p>
+        </aside>
+
+        <figure class="doc-figure">
+            <img
+                src="contents/processos/cadastros_basicos/gifs/cadastro_alunos_identificacao.gif"
+                alt="Demonstração do preenchimento dos dados básicos, informações adicionais e necessidades educacionais especiais"
+                loading="lazy"
+            >
+            <figcaption class="doc-caption">
+                Preenchimento das informações da aba Identificação.
+            </figcaption>
+        </figure>
+
+    </section>
+
+    <!-- =====================================================
+         3. ABA ENDEREÇO
+         ===================================================== -->
+
+    <section class="doc-section" id="endereco">
+
+        <h2>3. Preencher a aba Endereço</h2>
+
+        <p>
+            Acesse a aba <strong>Endereço</strong> e informe os dados de endereço do aluno:
+        </p>
+
+        <ul>
+            <li>CEP;</li>
+            <li>Logradouro;</li>
+            <li>Número;</li>
+            <li>Bairro;</li>
+            <li>Estado;</li>
+            <li>Cidade;</li>
+            <li>País.</li>
+        </ul>
+
+        <p>
+            Informe também pelo menos um telefone de contato: <strong>celular ou residencial</strong>.
+        </p>
+
+    </section>
+
+    <!-- =====================================================
+         4. ABA DOCUMENTOS
+         ===================================================== -->
+
+    <section class="doc-section" id="documentos">
+
+        <h2>4. Preencher a aba Documentos</h2>
+
+        <p>
+            Na aba <strong>Documentos</strong>, preencha as informações do documento de
+            identidade e do CPF:
+        </p>
+
+        <ul>
+            <li>CPF;</li>
+            <li>Número CI (RG);</li>
+            <li>Data de emissão;</li>
+            <li>Órgão emissor;</li>
+            <li>Estado de emissão.</li>
+        </ul>
+
+        <p>
+            No campo <strong>Órgão emissor</strong>, informe somente a sigla do órgão.
+            Selecione o estado de emissão no campo específico seguinte.
+        </p>
+
+        <figure class="doc-figure">
+            <img
+                src="contents/processos/cadastros_basicos/gifs/cadastro_alunos_endereco_documentos.gif"
+                alt="Demonstração do preenchimento das abas Endereço e Documentos"
+                loading="lazy"
+            >
+            <figcaption class="doc-caption">
+                Preenchimento do endereço e dos documentos do aluno.
+            </figcaption>
+        </figure>
+
+    </section>
+
+    <!-- =====================================================
+         5. ABA RESPONSÁVEIS
+         ===================================================== -->
+
+    <section class="doc-section" id="responsaveis">
+
+        <h2>5. Preencher a aba Responsáveis</h2>
+
+        <p>
+            A forma de preenchimento depende da idade do aluno e da necessidade de vincular
+            um responsável financeiro.
+        </p>
+
+        <h3>5.1. Aluno maior de idade</h3>
+
+        <p>
+            Para cadastrar o próprio aluno como responsável financeiro, clique no botão
+            <strong>Cadastrar aluno como responsável</strong>. O sistema utilizará os dados
+            do aluno e preencherá o campo de responsável financeiro.
+        </p>
+
+        <h3>5.2. Aluno menor de idade</h3>
+
+        <p>
+            Para um aluno menor de idade, informe um responsável maior de 18 anos. Utilize
+            o botão de seleção de pessoa para localizar alguém já cadastrado no sistema.
+            Vincule essa pessoa ao aluno e indique se ela é sua mãe ou seu pai. Em seguida,
+            clique em <strong>Adicionar</strong>.
+        </p>
+
+        <p>
+            Depois de adicionar o responsável, utilize a opção
+            <strong>Cadastrar pai ou mãe como responsável</strong> para vinculá-lo como
+            responsável financeiro, em vez de cadastrar o próprio aluno nessa função.
+        </p>
+
+        <h3>5.3. Responsável ainda não cadastrado</h3>
+
+        <p>
+            Se o pai ou a mãe não estiver cadastrado no sistema, clique nos botão de busca
+            e selecione a opção para incluir o responsável. Preencha os dados básicos:
+        </p>
+
+        <ul>
+            <li>Nome completo;</li>
+            <li>Estado natal;</li>
+            <li>Município natal;</li>
+            <li>Data de nascimento;</li>
+            <li>CPF do responsável financeiro.</li>
+        </ul>
+
+        <p>
+            Preencha também o endereço e os dados de contato do responsável. Em cursos pagos,
+            algumas dessas informações são exigidas pelo banco para o registro dos boletos.
+        </p>
+
+    </section>
+
+    <!-- =====================================================
+         6. CAMPOS COMPLEMENTARES
+         ===================================================== -->
+
+    <section class="doc-section" id="campos-complementares">
+
+        <h2>6. Preencher os campos complementares</h2>
+
+        <p>
+            Na aba <strong>Campos complementares</strong>, preencha:
+        </p>
+
+        <ul>
+            <li><strong>Situação ocupacional do aluno;</strong></li>
+            <li><strong>Tipo de escola de origem</strong>, considerando o tipo de escola frequentado por último.</li>
+        </ul>
+
+        <h3>6.1. Código do aluno no SCOP</h3>
+
+        <p>
+            Mantenha o campo <strong>Código do aluno no SCOP</strong> em branco. Em situações
+            específicas, como no tratamento de determinadas críticas, a equipe da Gerência
+            de Educação Profissional poderá solicitar o preenchimento com a informação
+            correspondente.
+        </p>
+
+        <h3>6.2. Grupo de vulneráveis e cadastro sem CPF</h3>
+
+        <p>
+            O CPF é obrigatório para os alunos, exceto nos casos em que a pessoa pertence
+            a um dos grupos previstos para cadastro sem esse documento. Nessas situações,
+            preencha o campo <strong>Grupo de vulneráveis</strong> com a opção correspondente:
+        </p>
+
+        <ul>
+            <li>Estrangeiro;</li>
+            <li>Indígena;</li>
+            <li>Apenado;</li>
+            <li>Jovem ou adolescente em cumprimento de medida socioeducativa;</li>
+            <li>Refugiado;</li>
+            <li>Quilombola.</li>
+        </ul>
+
+        <p>
+            Existe também a opção <strong>Não se aplica</strong>, mas ela deve ser evitada.
+            O sistema somente permitirá salvar o cadastro sem CPF quando o campo Grupo de
+            vulneráveis estiver preenchido com uma das opções aplicáveis.
+        </p>
+
+        <h3>6.3. Nome da mãe</h3>
+
+        <p>
+            O campo <strong>Nome da mãe</strong> é de preenchimento obrigatório. Embora seja
+            possível cadastrar e vincular a mãe na aba Responsáveis, não é necessário realizar
+            esse vínculo apenas para informar o nome da mãe: você pode preencher diretamente
+            esse campo complementar.
+        </p>
+
+        <aside class="doc-note">
+            <strong>Quando preencher a aba Responsáveis?</strong>
+            <p>
+                O vínculo de responsável é necessário quando o aluno é menor de idade e
+                realizará inscrição em um curso que exige pagamento. Para os demais casos,
+                o preenchimento da aba Responsáveis não é obrigatório, conforme as orientações
+                deste procedimento.
+            </p>
+        </aside>
+
+        <p>
+            Os demais campos complementares não precisam ser preenchidos.
+        </p>
+
+        <figure class="doc-figure">
+            <img
+                src="contents/processos/cadastros_basicos/gifs/cadastro_alunos_responsaveis_complementares.gif"
+                alt="Demonstração do cadastro de responsáveis e do preenchimento dos campos complementares"
+                loading="lazy"
+            >
+            <figcaption class="doc-caption">
+                Cadastro de responsáveis e preenchimento dos campos complementares.
+            </figcaption>
+        </figure>
+
+    </section>
+
+    <!-- =====================================================
+         7. SALVAR CADASTRO
+         ===================================================== -->
+
+    <section class="doc-section" id="salvar-cadastro">
+
+        <h2>7. Salvar o cadastro do aluno</h2>
+
+        <p>
+            Revise os dados preenchidos nas abas e clique em <strong>Salvar</strong> para
+            concluir o cadastro básico do aluno.
+        </p>
+
+        <aside class="doc-note">
+            <strong>Etapa seguinte</strong>
+            <p>
+                O cadastro de anexos e a análise das demais possibilidades disponíveis na
+                tela do aluno serão tratados em uma documentação específica.
+            </p>
+        </aside>
+
+    </section>
+
+    <!-- =====================================================
+         HISTÓRICO DE VERSÕES
+         ===================================================== -->
+
+    <section class="doc-section doc-version-history" id="historico-versoes">
+
+        <h2>Histórico de versões</h2>
+
+        <div class="doc-version-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Versão</th>
+                        <th>Data</th>
+                        <th>Descrição da alteração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.0</td>
+                        <td>27/10/2026</td>
+                        <td>Criação da documentação para cadastro básico de alunos.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+</main>

@@ -19,16 +19,16 @@
                     "titulo": "Introdução",
                     "icone": "description",
                     "rota": "/processos/cadastros-basicos/introducao",
-                    "caminho": "contents/processos/cadastros-basicos/introducao.html"
+                    "caminho": "contents/processos/cadastros_basicos/introducao.html"
                 },
 
                 {
                     "id": "DOC.002A",
-                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "versao": "v1.0 (27/10/2026)",
                     "titulo": "Cadastro de alunos",
                     "icone": "description",
                     "rota": "/processos/cadastros-basicos/cadastro-de-alunos",
-                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-alunos.html"
+                    "caminho": "contents/processos/cadastros_basicos/cadastro_de_alunos.html"
                 },
 
                 {
