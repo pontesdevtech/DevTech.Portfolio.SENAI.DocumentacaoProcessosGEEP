@@ -1,0 +1,130 @@
+<main class="doc-page">
+    <header class="doc-header">
+        <h1>Cadastro de docentes</h1>
+        <div class="doc-metadata">
+            <div class="doc-metadata-item"><span class="doc-metadata-key">PROCESSO</span><strong class="doc-metadata-value" id="processo-id"></strong></div>
+            <div class="doc-metadata-item"><span class="doc-metadata-key">DOCUMENTAÇÃO</span><strong class="doc-metadata-value" id="documentacao-id"></strong></div>
+            <div class="doc-metadata-item"><span class="doc-metadata-key">VERSÃO</span><strong class="doc-metadata-value" id="versao-id"></strong></div>
+        </div>
+        <p>Orienta o cadastro de docentes no SGE, desde o preenchimento dos dados pessoais e profissionais até a vinculação do docente às filiais em que poderá atuar nas unidades curriculares.</p>
+    </header>
+
+    <section class="doc-section" id="acessar-cadastro">
+        <h2>1. Acessar o cadastro de docentes</h2>
+        <p>No <strong>SGE</strong>, acesse o módulo <strong>Educacional</strong>, abra a aba <strong>Currículo e Oferta</strong> e clique em <strong>Docentes</strong>. A tela exibirá os docentes já cadastrados. Para cadastrar um novo docente, clique em <strong>Incluir</strong>.</p>
+        <figure class="doc-figure">
+            <img src="contents/processos/cadastros_basicos/gifs/cadastro_docentes_acessar_lista.gif" alt="Acesso à lista de docentes no SGE" loading="lazy">
+            <figcaption class="doc-caption">Acesso à lista de docentes cadastrados no SGE.</figcaption>
+        </figure>
+    </section>
+
+    <section class="doc-section" id="identificacao">
+        <h2>2. Preencher a aba Identificação</h2>
+        <p>Na aba <strong>Identificação</strong>, preencha os campos relacionados aos dados pessoais e profissionais do docente.</p>
+        <div class="doc-flow-table">
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>1.</span><strong>Código do docente</strong></div><div class="doc-flow-value">Código utilizado para identificar o docente no SGE. Siga a regra específica para cada tipo de vínculo.</div></div>
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>2.</span><strong>Dados pessoais</strong></div><div class="doc-flow-value">Nome, estado natal, naturalidade, data de nascimento, sexo, estado civil e nacionalidade.</div></div>
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>3.</span><strong>Dados profissionais</strong></div><div class="doc-flow-value">Titulação e e-mail do docente.</div></div>
+        </div>
+
+        <h3>2.1. Definir o código do docente</h3>
+        <p>O código deve seguir o tipo de vínculo do docente:</p>
+        <div class="doc-cards">
+            <article class="doc-card"><h3>Quadro</h3><p>Informe o número de matrícula do colaborador.</p></article>
+            <article class="doc-card"><h3>Intermitente</h3><p>Informe o número de matrícula do colaborador.</p></article>
+            <article class="doc-card"><h3>Horista</h3><p>Informe o número de matrícula do colaborador.</p></article>
+            <article class="doc-card"><h3>Extra-quadro</h3><p>Informe a sigla <strong>EXT</strong>, em letras maiúsculas, seguida do número do contrato. Exemplo: <strong>EXT12345</strong>.</p></article>
+        </div>
+        <aside class="doc-note"><strong>Atenção ao código</strong><p>Utilize a matrícula do colaborador para docentes do quadro, intermitentes e horistas. Reserve o padrão <strong>EXT + número do contrato</strong> exclusivamente para docentes extra-quadro.</p></aside>
+
+        <h3>2.2. Informar o e-mail</h3>
+        <p>Para docentes do quadro, intermitentes e horistas, informe o <strong>e-mail institucional</strong>. Para docentes extra-quadro, utilize o endereço indicado pelo próprio docente.</p>
+        <aside class="doc-note"><strong>Confira o endereço informado</strong><p>O e-mail é utilizado por integrações do SGE. Certifique-se de que o endereço esteja correto e seja válido.</p></aside>
+
+        <h3>2.3. Usuário e senha inicial</h3>
+        <p>O usuário é criado automaticamente quando um novo docente é cadastrado. O código de usuário utiliza o mesmo código informado no campo <strong>Código do docente</strong>. O usuário também é vinculado automaticamente à unidade que está realizando o cadastro.</p>
+        <p>A senha padrão para o primeiro acesso é <strong>Portal@docente2022</strong>. O usuário deverá criar uma senha definitiva no primeiro acesso ao portal.</p>
+        <figure class="doc-figure">
+            <img src="contents/processos/cadastros_basicos/gifs/cadastro_docentes_identificacao.gif" alt="Preenchimento da aba Identificação e definição do código do docente" loading="lazy">
+            <figcaption class="doc-caption">Preenchimento dos dados de identificação do docente.</figcaption>
+        </figure>
+
+        <h3>2.4. Informações adicionais</h3>
+        <p>Na sub-aba <strong>Informações Adicionais</strong>, preencha <strong>Cor/Raça</strong> e <strong>Grau de instrução</strong>. Preencha <strong>Tipo sanguíneo</strong> somente se tiver certeza dessa informação. Se o docente relatar que possui alguma deficiência, marque a opção correspondente.</p>
+        <aside class="doc-note"><strong>Não presuma uma deficiência</strong><p>Selecione uma deficiência somente quando o próprio docente informar essa condição. Não faça inferências com base apenas na observação.</p></aside>
+    </section>
+
+    <section class="doc-section" id="endereco">
+        <h2>3. Preencher a aba Endereço</h2>
+        <p>Na aba <strong>Endereço</strong>, informe:</p>
+        <ul><li>CEP;</li><li>Logradouro;</li><li>Número e complemento;</li><li>Bairro;</li><li>Estado e cidade;</li><li>País;</li><li>Pelo menos um telefone: residencial ou celular.</li></ul>
+        <p>O campo <strong>E-mail pessoal</strong> é opcional no primeiro cadastro. Entretanto, quando preenchido e salvo, o endereço informado também atualiza o e-mail vinculado ao usuário criado automaticamente.</p>
+        <aside class="doc-note"><strong>Atualização do e-mail do usuário</strong><p>Se o docente esquecer qual e-mail está vinculado ao usuário ou precisar alterá-lo, a secretaria poderá informar o novo endereço no campo <strong>E-mail pessoal</strong> da aba Endereço e salvar o cadastro. O SGE atualizará também o e-mail do usuário, permitindo que o docente utilize o novo endereço nos procedimentos de recuperação de senha.</p></aside>
+    </section>
+
+    <section class="doc-section" id="documentos">
+        <h2>4. Preencher a aba Documentos</h2>
+        <p>Na aba <strong>Documentos</strong>, preencha os dados dos documentos do docente:</p>
+        <ul><li>CPF;</li><li>Carteira de identidade;</li><li>Data de emissão da carteira de identidade;</li><li>Órgão emissor;</li><li>Estado natal;</li><li>Estado emissor do documento.</li></ul>
+        <p>Confira se as informações foram digitadas nos campos correspondentes, especialmente os dados do órgão e do estado emissor.</p>
+        <figure class="doc-figure">
+            <img src="contents/processos/cadastros_basicos/gifs/cadastro_docentes_endereco_documentos.gif" alt="Preenchimento das abas Endereço e Documentos do docente" loading="lazy">
+            <figcaption class="doc-caption">Preenchimento dos dados de endereço e documentos.</figcaption>
+        </figure>
+    </section>
+
+    <section class="doc-section" id="campos-complementares">
+        <h2>5. Preencher os campos complementares</h2>
+        <p>Na área de <strong>Campos complementares</strong>, preencha as informações necessárias para identificar o vínculo, a jornada e a área de atuação do docente.</p>
+        <div class="doc-flow-table">
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>1.</span><strong>Função</strong></div><div class="doc-flow-value">Informe a função do docente conforme as opções disponíveis no SGE.</div></div>
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>2.</span><strong>Jornada</strong></div><div class="doc-flow-value">Informe a jornada de trabalho correspondente ao docente.</div></div>
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>3.</span><strong>Quadro</strong></div><div class="doc-flow-value">Indique se o docente é do quadro, extra-quadro, ou intermitente.</div></div>
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>4.</span><strong>Horas contratadas diárias</strong></div><div class="doc-flow-value">Para mensalista integral, informe 8 horas por dia; para mensalista parcial, informe 4 horas por dia.</div></div>
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>5.</span><strong>Área de atuação</strong></div><div class="doc-flow-value">Informe a área de atuação do docente. Essa informação facilita a identificação do docente nos filtros e sua alocação nos cursos.</div></div>
+        </div>
+        <figure class="doc-figure">
+            <img src="contents/processos/cadastros_basicos/gifs/cadastro_docentes_campos_complementares.gif" alt="Preenchimento dos campos complementares do docente" loading="lazy">
+            <figcaption class="doc-caption">Definição do vínculo, da jornada e da área de atuação.</figcaption>
+        </figure>
+    </section>
+
+    <section class="doc-section" id="salvar-cadastro">
+        <h2>6. Salvar o cadastro do docente</h2>
+        <p>Revise os dados informados nas abas Identificação, Endereço, Documentos e Campos complementares. Em seguida, clique em <strong>Salvar</strong>.</p>
+    </section>
+
+    <section class="doc-section" id="vincular-filiais">
+        <h2>7. Vincular o docente às filiais</h2>
+        <p>Após salvar o cadastro do docente, inclua as filiais em que ele poderá atuar. A filial corresponde à escola ou unidade à qual o docente será vinculado para ministrar das unidades curriculares.</p>
+        <div class="doc-flow-table">
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>1.</span><strong>Acessar o anexo</strong></div><div class="doc-flow-value">No cadastro do docente, abra o anexo "Filiais do Professor".</div></div>
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>2.</span><strong>Selecionar unidade</strong></div><div class="doc-flow-value">Preencha a filial à qual deseja vincular o docente.</div></div>
+            <div class="doc-flow-row"><div class="doc-flow-key"><span>3.</span><strong>Salve o registro</strong></div><div class="doc-flow-value">Salve o registro para que o docente possa ser vinculado às unidades curriculares da unidade.</div></div>
+        </div>
+        <aside class="doc-note"><strong>Atenção ao vínculo da filial</strong><p>O docente somente poderá ser vinculado a unidades curriculares das filiais cadastradas no anexo Filiais do Professor. Inclua todas as unidades em que ele precisará atuar.</p></aside>
+        <figure class="doc-figure">
+            <img src="contents/processos/cadastros_basicos/gifs/cadastro_docentes_vincular_filiais.gif" alt="Inclusão de uma filial no cadastro do docente" loading="lazy">
+            <figcaption class="doc-caption">Vinculação do docente às filiais em que poderá atuar.</figcaption>
+        </figure>
+    </section>
+
+    <section class="doc-section" id="resumo">
+        <h2>8. Resumo do procedimento</h2>
+        <div class="doc-cards">
+            <article class="doc-card"><h3>Identificação</h3><p>Preencha os dados pessoais e profissionais e aplique a regra correta para o código do docente e o e-mail.</p></article>
+            <article class="doc-card"><h3>Dados complementares</h3><p>Informe endereço, documentos, vínculo, jornada e área de atuação.</p></article>
+            <article class="doc-card"><h3>Filiais</h3><p>Inclua as unidades em que o docente poderá ser vinculado às unidades curriculares.</p></article>
+        </div>
+    </section>
+
+    <section class="doc-section doc-version-history" id="historico-versoes">
+        <h2>Histórico de versões</h2>
+        <div class="doc-version-table">
+            <table>
+                <thead><tr><th>Versão</th><th>Data</th><th>Descrição da alteração</th></tr></thead>
+                <tbody><tr><td>1.0</td><td>28/10/2026</td><td>Criação da documentação para cadastro de docentes no SGE.</td></tr></tbody>
+            </table>
+        </div>
+    </section>
+</main>

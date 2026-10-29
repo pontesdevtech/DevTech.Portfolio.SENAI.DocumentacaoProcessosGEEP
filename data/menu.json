@@ -32,30 +32,12 @@
                 },
 
                 {
-                    "id": "DOC.002B",
-                    "versao": "v1.0 (XX/XX/XXXX)",
-                    "titulo": "Anexos da tela do aluno",
-                    "icone": "description",
-                    "rota": "/processos/cadastros-basicos/anexos-da-tela-do-aluno",
-                    "caminho": "contents/processos/cadastros-basicos/anexos-da-tela-do-aluno.html"
-                },
-
-                {
                     "id": "DOC.003A",
-                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "versao": "v1.0 (28/10/2026)",
                     "titulo": "Cadastro de docentes",
                     "icone": "description",
                     "rota": "/processos/cadastros-basicos/cadastro-de-docentes",
-                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-docentes.html"
-                },
-
-                {
-                    "id": "DOC.003B",
-                    "versao": "v1.0 (XX/XX/XXXX)",
-                    "titulo": "Anexos da tela do docentes",
-                    "icone": "description",
-                    "rota": "/processos/cadastros-basicos/anexos-da-tela-do-docente",
-                    "caminho": "contents/processos/cadastros-basicos/anexos-da-tela-do-docente.html"
+                    "caminho": "contents/processos/cadastros_basicos/cadastro_de_docentes.html"
                 },
 
                 {
