@@ -42,11 +42,11 @@
 
                 {
                     "id": "DOC.004A",
-                    "versao": "v1.0 (XX/XX/XXXX)",
+                    "versao": "v1.0 (29/10/2026)",
                     "titulo": "Cadastro de turnos",
                     "icone": "description",
                     "rota": "/processos/cadastros-basicos/cadastro-de-turnos",
-                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-turnos.html"
+                    "caminho": "contents/processos/cadastros_basicos/cadastro_de_turnos.html"
                 },
 
                 {
@@ -55,7 +55,7 @@
                     "titulo": "Cadastro de ambientes pedagógicos",
                     "icone": "description",
                     "rota": "/processos/cadastros-basicos/cadastro-de-ambientes-pedagogicos",
-                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-ambientes-pedagogicos.html"
+                    "caminho": "contents/processos/cadastros_basicos/cadastro_de_ambientes_pedagogicos.html"
                 },
 
                 {
@@ -64,7 +64,7 @@
                     "titulo": "Cadastro de justificativas de faltas",
                     "icone": "description",
                     "rota": "/processos/cadastros-basicos/cadastro-de-justificativas-de-faltas",
-                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-justificativas-de-faltas.html"
+                    "caminho": "contents/processos/cadastros_basicos/cadastro_de_justificativas_de_faltas.html"
                 },
 
                 {
@@ -73,7 +73,7 @@
                     "titulo": "Cadastro de banners dos portais",
                     "icone": "description",
                     "rota": "/processos/cadastros-basicos/cadastro-de-banners-dos-portais",
-                    "caminho": "contents/processos/cadastros-basicos/cadastro-de-banners-dos-portais.html"
+                    "caminho": "contents/processos/cadastros_basicos/cadastro_de_banners_dos_portais.html"
                 }
             ]
         },
